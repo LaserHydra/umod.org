@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"><![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Universal modding platform and plugin API for Unity, .NET/C#, and soon C++ games" />
+
+    <title>uMod - RaidTracker</title>
+    <link rel="canonical" href="https://umod.org/plugins/RaidTracker/plugin/"/>
+    <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="uMod" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96" />
+    <!--link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png" />-->
+
+    <meta property="og:title" content="uMod - RaidTracker">
+    <meta property="og:description" content="Log raids in progress by tracking explosions to be later recreated on-screen">
+    <meta property="og:image" content="/assets/images/favicon-96x96.png">
+    <meta property="og:url" content="https://umod.org/plugins/RaidTracker/plugin/">
+    <meta property="og:site_name" content="uMod">
+
+    <!--<meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Alt text for image">-->
+    <meta name="twitter:site" content="@theumod">
+    <!--<meta property="fb:app_id" content="your_app_id" />-->
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/prism.css" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/assets/js/github.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="page js-page">
+        <div class="header header-over large">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-5">
+                <a href="/" class="logo-image">
+                    <img src="/assets/images/logos/umod-gray.png" alt="">
+                </a>
+            </div>
+            <div class="col-md-9 col-sm-6 col-xs-7">
+    <nav class="right helper">
+        <ul class="menu sf-menu js-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/download/">Download</a></li>
+            <li><a href="/plugins/">Plugins</a></li>
+            <li><a href="/forums/">Forums</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/changelog/">Changelog</a></li>
+            <li><a href="/api/">API</a></li>
+        </ul>
+    </nav>
+</div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="header-back header-back-simple header-back-small">
+    <div class="header-back-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-info page-info-simple">
+                        <h1 class="page-title">RaidTracker</h1>
+                        <h2 class="page-description">Log raids in progress by tracking explosions to be later recreated on-screen</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="content">
+    <div class="container">
+        <div class="row">
+    <div class="col-md-9">
+        <div class="main-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor in sapien et lacinia. Ut tortor mi, pulvinar a ligula eget, volutpat dignissim tellus. Duis in enim at lorem venenatis venenatis. Ut vel nibh tristique, egestas lorem vel, venenatis enim. Nunc auctor tellus non neque facilisis ultricies sit amet ac est. Ut ornare nibh vel justo molestie pharetra. Ut maximus convallis rhoncus. Pellentesque tincidunt mollis ante, in ullamcorper turpis convallis eu. Nulla facilisi. Aliquam sit amet nibh vel tortor cursus ullamcorper. Donec in magna eu mi ornare interdum. Nullam non ligula nisi. Nulla facilisi.</p>
+            <div class="separator"></div>
+            <p class="mb40 helper">Mauris id consectetur arcu. Aenean rutrum, quam ac condimentum vulputate, felis libero ullamcorper lectus, non dictum odio dui ac nisi. Sed dignissim, purus at porta blandit, enim orci sagittis dolor, ut ultrices leo ipsum eget nisi. In accumsan iaculis quam, ac aliquam sapien fringilla ut. Quisque eu quam mollis, pretium arcu a, pellentesque dui. Duis massa nisi, volutpat sit amet interdum vel, ullamcorper vitae sem. Nullam ante neque, fermentum ut bibendum feugiat, viverra nec felis. Fusce sodales augue ut ligula efficitur, in dapibus mi tristique.</p>
+        </div>
+    </div>
+    <div class="col-md-3 hidden-sm hidden-xs">
+        <div class="sidebar js-sidebar-fixed">
+            <div class="widget">
+                <div class="box box-image">
+                    <img src="http://placehold.it/800x600?text=RaidTracker" class="image" alt="RaidTracker" />
+                </div>
+            </div>
+            <div class="widget">
+                <div class="">
+                    <a href="plugins/RaidTracker/RaidTracker.cs" class="button helper mb30 large full blue" download="RaidTracker.cs">Download Now</a>
+                </div>
+            </div>
+            <!--<div class="widget">
+                <div class="">
+                    <a href="https://github.com/umods/RaidTracker" class="button helper mb30 large full green">Contribute at GitHub</a>
+                </div>
+            </div>-->
+            <!--<nav class="menu-vertical-wrapper">
+                <ul class="menu-vertical  js-menu-vertical" data-prepend-to=".js-layout" data-select="Menu">
+                    <li>
+                        <a href="#">Placeholder</a>
+                        <ul>
+                            <li>
+                                <a href="#">Placeholder</a>
+                                <ul>
+                                    <li>
+                                        <a href="">Placeholder</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>-->
+            <div class="widget">
+                <div class="number-box">
+                    <div class="number-icon">
+                        <i class="pe-7s-star"></i>
+                    </div>
+                    <div class="number-wrapper">
+                        <span class="number-rotator js-animate-number" data-number="0">0 <span class="number-description grey">stargazers</span></span>
+                    </div>
+                </div>
+                <div class="number-box">
+                    <div class="number-icon">
+                        <i class="pe-7s-look"></i>
+                    </div>
+                    <div class="number-wrapper">
+                        <span class="number-rotator js-animate-number" data-number="0">0 <span class="number-description grey">watchers</span></span>
+                    </div>
+                </div>
+            <div class="widget">
+                <h3 class="widget-title">Tags</h3>
+                <ul class="tags">
+                    <li class="tag-item">
+                        <a href="#">admin</a>
+                    </li>
+                    <li class="tag-item">
+                        <a href="#">placeholder</a>
+                    </li>
+                    <li class="tag-item">
+                        <a href="#">universal</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<footer class="js-footer-is-fixed">
+    <div class="footer-extended">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-extended-container">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <div class="footer-logo-wrapper">
+                                        <a href="/" class="logo-image">
+                                            <img src="/assets/images/logos/umod-gray.png" alt="logo">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <h5 class="footer-extended-menu-title">About</h5>
+                                    <ul class="footer-extended-menu-list">
+                                        <li><a href="/about/">The Project</a></li>
+                                        <li><a href="/blog/">Blog</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <h5 class="footer-extended-menu-title">Download</h5>
+                                    <ul class="footer-extended-menu-list">
+                                        <li><a href="/download/">Releases</a></li>
+                                        <li><a href="" target="_blank">Source</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <h5 class="footer-extended-menu-title">Docs</h5>
+                                    <ul class="footer-extended-menu-list">
+                                        <li><a href="/getting-started/">Getting Started</a></li>
+                                        <li><a href="/faq/">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <h5 class="footer-extended-menu-title">Community</h5>
+                                    <ul class="footer-extended-menu-list">
+                                        <li><a href="https://umod.org/forums/">Forums</a></li>
+                                        <li><a href="https://discord.gg/Bm58rTq">Discord</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <!--<span class="scroll-top js-scroll-top">
+                                        <i class="fa fa-angle-up"></i>
+                                    </span>-->
+                                    <ul class="footer-menu helper right">
+                                        <li><a href="">About</a></li>
+                                        <li><a href="">Privacy</a></li>
+                                        <li><a href="">Terms</a></li>
+                                    </ul>
+                                    <p class="copyright helper right">
+	                                    The uMod Project and uMod.org &copy; 2017
+	                                </p>
+	                                <p class="copyright helper right">Built: Sat, 18 Nov 2017 07:19:56 +0000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    </div>
+
+    <script src="/assets/js/all.js"></script>
+    <script src="/assets/js/prism.js"></script>
+    <script src="/assets/js/custom.js"></script>
+
+    <script type="text/javascript">(function() { if (window.location.href.indexOf("github.io") > -1) { window.location.replace(""); } })();</script>
+</body>
+</html>

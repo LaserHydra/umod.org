@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"><![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Universal modding platform and plugin API for Unity, .NET/C#, and soon C++ games" />
+
+    <title>uMod - API Overview</title>
+    <link rel="canonical" href="https://umod.org/api/"/>
+    <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="uMod" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96" />
+    <!--link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png" />-->
+
+    <meta property="og:title" content="uMod - API Overview">
+    <meta property="og:description" content="{}">
+    <meta property="og:image" content="/assets/images/favicon-96x96.png">
+    <meta property="og:url" content="https://umod.org/api/">
+    <meta property="og:site_name" content="uMod">
+
+    <!--<meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Alt text for image">-->
+    <meta name="twitter:site" content="@theumod">
+    <!--<meta property="fb:app_id" content="your_app_id" />-->
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/prism.css" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/assets/js/github.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="page js-page">
+        <div class="page js-page ">
+    <div class="one-page-sidebar">
+        <div class="one-page-sidebar-header">
+            <div class="one-page-logo">
+                <a href="/api/" class="logo-image ">
+                    <img src="https://umod.org/assets/images/logos/umod-gray.png" alt="">
+                </a>
+            </div>
+            <div class="one-page-meta">
+                <ul class="one-page-meta-list">
+                    <li><a href="/"><i class="one-page-meta-list-icon fa fa-home"></i>Home</a></li>
+                    <li><a href=""><i class="one-page-meta-list-icon fa fa-github-alt"></i>GitHub</a></li>
+                    <li><a href="https://umod.org/forums/"><i class="one-page-meta-list-icon fa fa-support"></i>Forums</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="one-page-nav-wrapper js-custom-scrollbar">
+            <ul class="one-page-nav js-one-page-nav js-menu-vertical" data-prepend-to=".js-prepend-mobile-menu">
+	            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li class="is-active">
+                            <a href="/api/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-info"></i></span>
+                                API Overview
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/getting-started/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-paper-plane-o"></i></span>
+                                Getting Started
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/style-guide/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-magic"></i></span>
+                                Style Guide
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/configurations/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-wrench"></i></span>
+                                Configurations
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/data-files/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-folder-open"></i></span>
+                                Data Files
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/timers/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-clock-o"></i></span>
+                                Timers
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/web-requests/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-external-link"></i></span>
+                                Web Requests
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/universal-hooks/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-bolt"></i></span>
+                                Universal Hooks
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/commands/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-terminal"></i></span>
+                                Commands
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/database/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-database"></i></span>
+                                Database
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/definitions/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-book"></i></span>
+                                Definitions
+                            </a>
+                        </li>
+                    
+                
+            </ul>
+        </div>
+        <footer class="one-page-sidebar-footer">
+            uMod and uMod.org &copy; 2017
+            <br />Built: Sat, 18 Nov 2017 07:19:56 +0000
+	    </footer>
+    </div>
+
+    <div class="one-page-content">
+        <header class="header large header-one-page ">
+            <div class="container-fluid container-spaced">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-5">
+                        <div class="visible-sm-block visible-xs-block">
+                            <a href="/api/" class="logo-image">
+                                <img src="https://umod.org/assets/images/logos/umod-gray.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-6 col-xs-7">
+                        <nav class="right helper">
+                            <ul class="menu sf-menu js-menu">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/download/">Download</a></li>
+                                <li><a href="/forums/">Forums</a></li>
+                                <li><a href="/faq/">FAQ</a></li>
+                                <li><a href="/changelog/">Changelog</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="content">
+            <div class="container-fluid container-spaced">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="js-prepend-mobile-menu"></div>
+                        <div class="category-info helper pt0" id="api-overview">
+    <h3 class="category-title">
+        <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#api-overview">
+            <i class="fa fa-link"></i>
+        </a>
+        API Overview
+    </h3>
+    <p class="category-content">uMod's focus is on modularity and extensibility. The core is highly abstracted and loosely coupled, and could be used to mod any game that uses the .NET Framework or Unity engine, with support for C++ and Unreal powered games on the way.</p>
+</div>
+
+    <div class="row">
+        
+        	<div class="col-md-4">
+        		<div class="box box-small-icon">
+        			<i class="box-icon fa fa-paper-plane-o fa-2x" alt="box icon"></i>
+        			<h4 class="box-title">Basics</h4>
+        			<p class="box-description">blurb blurb blurb blurb blurb blurb blurb v</p>
+        		</div>
+        	</div>
+    	
+        	<div class="col-md-4">
+        		<div class="box box-small-icon">
+        			<i class="box-icon fa fa-wrench fa-2x" alt="box icon"></i>
+        			<h4 class="box-title">Configs</h4>
+        			<p class="box-description">blurb blurb blurb blurb blurb blurb blurb v</p>
+        		</div>
+        	</div>
+    	
+        	<div class="col-md-4">
+        		<div class="box box-small-icon">
+        			<i class="box-icon fa fa-bolt fa-2x" alt="box icon"></i>
+        			<h4 class="box-title">Hooks</h4>
+        			<p class="box-description">blurb blurb blurb blurb blurb blurb blurb v</p>
+        		</div>
+        	</div>
+    	
+    </div>
+
+    <div class="row">
+        
+        	<div class="col-md-4">
+        		<div class="box box-small-icon">
+        			<i class="box-icon fa fa-info fa-2x" alt="box icon"></i>
+        			<h4 class="box-title">Reference</h4>
+        			<p class="box-description">blurb blurb blurb blurb blurb blurb blurb v</p>
+        		</div>
+        	</div>
+    	
+        	<div class="col-md-4">
+        		<div class="box box-small-icon">
+        			<i class="box-icon fa fa-github-alt fa-2x" alt="box icon"></i>
+        			<h4 class="box-title">GitHub</h4>
+        			<p class="box-description">blurb blurb blurb blurb blurb blurb blurb v</p>
+        		</div>
+        	</div>
+    	
+        	<div class="col-md-4">
+        		<div class="box box-small-icon">
+        			<i class="box-icon fa fa-support fa-2x" alt="box icon"></i>
+        			<h4 class="box-title">Forums</h4>
+        			<p class="box-description">blurb blurb blurb blurb blurb blurb blurb v</p>
+        		</div>
+        	</div>
+    	
+    </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script src="/assets/js/all.js"></script>
+    <script src="/assets/js/prism.js"></script>
+    <script src="/assets/js/custom.js"></script>
+
+    <script type="text/javascript">(function() { if (window.location.href.indexOf("github.io") > -1) { window.location.replace(""); } })();</script>
+</body>
+</html>

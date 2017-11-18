@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"><![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Universal modding platform and plugin API for Unity, .NET/C#, and soon C++ games" />
+
+    <title>uMod - Plugins</title>
+    <link rel="canonical" href="https://umod.org/plugins/plugins/"/>
+    <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="uMod" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96" />
+    <!--link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png" />-->
+
+    <meta property="og:title" content="uMod - Plugins">
+    <meta property="og:description" content="Expand your server functionality with one or many plugins">
+    <meta property="og:image" content="/assets/images/favicon-96x96.png">
+    <meta property="og:url" content="https://umod.org/plugins/plugins/">
+    <meta property="og:site_name" content="uMod">
+
+    <!--<meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Alt text for image">-->
+    <meta name="twitter:site" content="@theumod">
+    <!--<meta property="fb:app_id" content="your_app_id" />-->
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/prism.css" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/assets/js/github.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="page js-page">
+        <div class="header header-over large">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-5">
+                <a href="/" class="logo-image">
+                    <img src="/assets/images/logos/umod-gray.png" alt="">
+                </a>
+            </div>
+            <div class="col-md-9 col-sm-6 col-xs-7">
+    <nav class="right helper">
+        <ul class="menu sf-menu js-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/download/">Download</a></li>
+            <li><a href="/plugins/">Plugins</a></li>
+            <li><a href="/forums/">Forums</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/changelog/">Changelog</a></li>
+            <li><a href="/api/">API</a></li>
+        </ul>
+    </nav>
+</div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="header-back header-back-simple header-back-small">
+    <div class="header-back-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-info page-info-simple">
+                        <h1 class="page-title">Plugins</h1>
+                        <h2 class="page-description">Expand your server functionality with one or many plugins</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="content">
+    <div class="container">
+        <div class="grid-view js-grid-view">
+    <div class="row">
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/AdminChatroom">AdminChatroom</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Allows admins to chat privately with each other in-game</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/AdminChatroom" alt="AdminChatroom">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">AdminChatroom</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/AdminPanel">AdminPanel</a>
+                    </h3>
+                    <p class="grid-view-elem-description">A small GUI panel of clickable commands for admins</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/AdminPanel" alt="AdminPanel">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">AdminPanel</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/AdminRadar">AdminRadar</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Allows admins to have a radar to help detect cheaters</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/AdminRadar" alt="AdminRadar">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">AdminRadar</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/Analytics">Analytics</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Real-time collection and reporting of server data to Google Analytics</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/Analytics" alt="Analytics">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">Analytics</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/Babel">Babel</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Plugin API for translating messages using free or paid translation services</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/Babel" alt="Babel">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">Babel</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/BabelChat">BabelChat</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Translates chat messages to each player's language preference or server default</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/BabelChat" alt="BabelChat">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">BabelChat</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/C4Logger">C4Logger</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Logs useful information about the use of C4</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/C4Logger" alt="C4Logger">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">C4Logger</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/Checkpoints">Checkpoints</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Restore points for players to teleport to when the server restarts</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/Checkpoints" alt="Checkpoints">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">Checkpoints</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/DangerousTreasures">DangerousTreasures</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Dangerous event with treasure chests</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/DangerousTreasures" alt="DangerousTreasures">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">DangerousTreasures</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/DevTest">DevTest</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Tests all of the available Oxide hooks and provides useful helpers</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/DevTest" alt="DevTest">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">DevTest</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/Duelist">Duelist</a>
+                    </h3>
+                    <p class="grid-view-elem-description">1v1 and TDM dueling event with plugin integrations</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/Duelist" alt="Duelist">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">Duelist</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/ForceEmote">ForceEmote</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Force another player to do an emote on command</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/ForceEmote" alt="ForceEmote">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">ForceEmote</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/HandyMan">HandyMan</a>
+                    </h3>
+                    <p class="grid-view-elem-description">AOE repair functionality to those with permission</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/HandyMan" alt="HandyMan">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">HandyMan</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/ItemTranslations">ItemTranslations</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Provides a data file of item names for translation</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/ItemTranslations" alt="ItemTranslations">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">ItemTranslations</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/NoCraft">NoCraft</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Blacklist craft items or disable crafting altogether</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/NoCraft" alt="NoCraft">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">NoCraft</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/NoRaid">NoRaid</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Prevents players from destroying buildings they're not associated with</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/NoRaid" alt="NoRaid">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">NoRaid</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/NoSuicide">NoSuicide</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Stops players from suiciding/killing themselves</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/NoSuicide" alt="NoSuicide">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">NoSuicide</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/Password">Password</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Provides name and chat command password protection for the server</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/Password" alt="Password">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">Password</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/PhantomSleepers">PhantomSleepers</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Create phantom sleepers to lure ESP hackers</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/PhantomSleepers" alt="PhantomSleepers">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">PhantomSleepers</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/RaidTracker">RaidTracker</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Log raids in progress by tracking explosions to be later recreated on-screen</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/RaidTracker" alt="RaidTracker">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">RaidTracker</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/ServerAnnouncer">ServerAnnouncer</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Allows you to broadcast a message to the server with a custom prefix</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/ServerAnnouncer" alt="ServerAnnouncer">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">ServerAnnouncer</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/StartMachine">StartMachine</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Automatically start machines on server startup and by manual control</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/StartMachine" alt="StartMachine">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">StartMachine</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/StartupCommands">StartupCommands</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Automatically runs configured commands on server startup</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/StartupCommands" alt="StartupCommands">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">StartupCommands</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/StashGap">StashGap</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Sets the distance at which players must build from stashes</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/StashGap" alt="StashGap">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">StashGap</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/TwitchAuth">TwitchAuth</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Only allow your followers on Twitch to join your server</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/TwitchAuth" alt="TwitchAuth">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">TwitchAuth</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/Underworld">Underworld</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Teleports admins/developer under the world when they disconnect</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/Underworld" alt="Underworld">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">Underworld</h4>
+                </a>
+            </div>
+        </div>-->
+        
+            <div class="col-md-4">
+                <div class="grid-view-elem js-grid-view-elem">
+                    <h3 class="grid-view-elem-title">
+                        <a href="https://github.com/umods/WelcomeTP">WelcomeTP</a>
+                    </h3>
+                    <p class="grid-view-elem-description">Teleports new players to a set position</p>
+                </div>
+            </div>
+        <!--<div class="col-md-3">
+            <div class="box box-image">
+                <a href="https://umod.org/plugins/WelcomeTP" alt="WelcomeTP">
+                    <img src="https://avatars0.githubusercontent.com/u/14831795?v=4" class="image" alt="box image">
+                    <h4 class="box-title">WelcomeTP</h4>
+                </a>
+            </div>
+        </div>-->
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+<footer class="js-footer-is-fixed">
+    <div class="footer-extended">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-extended-container">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <div class="footer-logo-wrapper">
+                                        <a href="/" class="logo-image">
+                                            <img src="/assets/images/logos/umod-gray.png" alt="logo">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <h5 class="footer-extended-menu-title">About</h5>
+                                    <ul class="footer-extended-menu-list">
+                                        <li><a href="/about/">The Project</a></li>
+                                        <li><a href="/blog/">Blog</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <h5 class="footer-extended-menu-title">Download</h5>
+                                    <ul class="footer-extended-menu-list">
+                                        <li><a href="/download/">Releases</a></li>
+                                        <li><a href="" target="_blank">Source</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <h5 class="footer-extended-menu-title">Docs</h5>
+                                    <ul class="footer-extended-menu-list">
+                                        <li><a href="/getting-started/">Getting Started</a></li>
+                                        <li><a href="/faq/">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <h5 class="footer-extended-menu-title">Community</h5>
+                                    <ul class="footer-extended-menu-list">
+                                        <li><a href="https://umod.org/forums/">Forums</a></li>
+                                        <li><a href="https://discord.gg/Bm58rTq">Discord</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="footer-extended-menu">
+                                    <!--<span class="scroll-top js-scroll-top">
+                                        <i class="fa fa-angle-up"></i>
+                                    </span>-->
+                                    <ul class="footer-menu helper right">
+                                        <li><a href="">About</a></li>
+                                        <li><a href="">Privacy</a></li>
+                                        <li><a href="">Terms</a></li>
+                                    </ul>
+                                    <p class="copyright helper right">
+	                                    The uMod Project and uMod.org &copy; 2017
+	                                </p>
+	                                <p class="copyright helper right">Built: Sat, 18 Nov 2017 07:19:56 +0000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    </div>
+
+    <script src="/assets/js/all.js"></script>
+    <script src="/assets/js/prism.js"></script>
+    <script src="/assets/js/custom.js"></script>
+
+    <script type="text/javascript">(function() { if (window.location.href.indexOf("github.io") > -1) { window.location.replace(""); } })();</script>
+</body>
+</html>

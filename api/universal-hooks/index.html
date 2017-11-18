@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"><![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Universal modding platform and plugin API for Unity, .NET/C#, and soon C++ games" />
+
+    <title>uMod - Universal Hooks</title>
+    <link rel="canonical" href="https://umod.org/api/universal-hooks/"/>
+    <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="uMod" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96" />
+    <!--link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png" />-->
+
+    <meta property="og:title" content="uMod - Universal Hooks">
+    <meta property="og:description" content="These hooks are available for all support games with the same parameters.">
+    <meta property="og:image" content="/assets/images/favicon-96x96.png">
+    <meta property="og:url" content="https://umod.org/api/universal-hooks/">
+    <meta property="og:site_name" content="uMod">
+
+    <!--<meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Alt text for image">-->
+    <meta name="twitter:site" content="@theumod">
+    <!--<meta property="fb:app_id" content="your_app_id" />-->
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/prism.css" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/assets/js/github.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="page js-page">
+        <div class="page js-page ">
+    <div class="one-page-sidebar">
+        <div class="one-page-sidebar-header">
+            <div class="one-page-logo">
+                <a href="/api/" class="logo-image ">
+                    <img src="https://umod.org/assets/images/logos/umod-gray.png" alt="">
+                </a>
+            </div>
+            <div class="one-page-meta">
+                <ul class="one-page-meta-list">
+                    <li><a href="/"><i class="one-page-meta-list-icon fa fa-home"></i>Home</a></li>
+                    <li><a href=""><i class="one-page-meta-list-icon fa fa-github-alt"></i>GitHub</a></li>
+                    <li><a href="https://umod.org/forums/"><i class="one-page-meta-list-icon fa fa-support"></i>Forums</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="one-page-nav-wrapper js-custom-scrollbar">
+            <ul class="one-page-nav js-one-page-nav js-menu-vertical" data-prepend-to=".js-prepend-mobile-menu">
+	            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-info"></i></span>
+                                API Overview
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/getting-started/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-paper-plane-o"></i></span>
+                                Getting Started
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/style-guide/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-magic"></i></span>
+                                Style Guide
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/configurations/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-wrench"></i></span>
+                                Configurations
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/data-files/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-folder-open"></i></span>
+                                Data Files
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/timers/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-clock-o"></i></span>
+                                Timers
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/web-requests/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-external-link"></i></span>
+                                Web Requests
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="is-active">
+                            <a href="/api/universal-hooks/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-bolt"></i></span>
+                                Universal Hooks
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/commands/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-terminal"></i></span>
+                                Commands
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/database/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-database"></i></span>
+                                Database
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/definitions/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-book"></i></span>
+                                Definitions
+                            </a>
+                        </li>
+                    
+                
+            </ul>
+        </div>
+        <footer class="one-page-sidebar-footer">
+            uMod and uMod.org &copy; 2017
+            <br />Built: Sat, 18 Nov 2017 07:19:56 +0000
+	    </footer>
+    </div>
+
+    <div class="one-page-content">
+        <header class="header large header-one-page ">
+            <div class="container-fluid container-spaced">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-5">
+                        <div class="visible-sm-block visible-xs-block">
+                            <a href="/api/" class="logo-image">
+                                <img src="https://umod.org/assets/images/logos/umod-gray.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-6 col-xs-7">
+                        <nav class="right helper">
+                            <ul class="menu sf-menu js-menu">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/download/">Download</a></li>
+                                <li><a href="/forums/">Forums</a></li>
+                                <li><a href="/faq/">FAQ</a></li>
+                                <li><a href="/changelog/">Changelog</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="content">
+            <div class="container-fluid container-spaced">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="js-prepend-mobile-menu"></div>
+                        
+    <div class="category-info helper pt0">
+        <h3 class="category-title" id="plugin hooks">
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#plugin hooks">
+                <i class="fa fa-link"></i>
+            </a>
+            Plugin Hooks
+        </h3>
+        <hr/>
+        
+            <h4 class="category-description" id="init">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#init">
+                    <i class="fa fa-link"></i>
+                </a>
+                Init
+            </h4>
+            <p class="category-content">Called when a plugin is being initialized. Other plugins may or may not be present, dependent on load order.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void Init()
+{
+    Puts("Add commands, check config file, register messages or permissions, etc.");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="loaded">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#loaded">
+                    <i class="fa fa-link"></i>
+                </a>
+                Loaded
+            </h4>
+            <p class="category-content">Called when a plugin has finished loading. Other plugins may or may not be present, dependent on load order.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void Loaded()
+{
+    Puts("Handle stuff after plugin is initailized such as referencing another plugin");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="unload">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#unload">
+                    <i class="fa fa-link"></i>
+                </a>
+                Unload
+            </h4>
+            <p class="category-content">Called when a plugin is being unloaded.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void Unload()
+{
+    Puts("Save files, destroy timers, etc.");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="loaddefaultconfig">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#loaddefaultconfig">
+                    <i class="fa fa-link"></i>
+                </a>
+                LoadDefaultConfig
+            </h4>
+            <p class="category-content">Called when the config for a plugin should be initialized. Only called if the config file does not already exist.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private new void LoadDefaultConfig()
+{
+    Puts("Default configuration created");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onframe">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onframe">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnFrame
+            </h4>
+            <p class="category-content">Called by engine every server frame.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnFrame()
+{
+    Puts("Handle with care!");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onpluginloaded">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onpluginloaded">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnPluginLoaded
+            </h4>
+            <p class="category-content">Called when a plugin has been loaded.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnPluginLoaded(Plugin name)
+{
+    Puts($"Plugin '{name}' has been loaded");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onpluginunloaded">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onpluginunloaded">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnPluginUnloaded
+            </h4>
+            <p class="category-content">Called when a plugin has been unloaded.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnPluginUnloaded(Plugin name)
+{
+    Puts($"Plugin '{name}' has been unloaded");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+
+    <div class="category-info helper pt0">
+        <h3 class="category-title" id="server hooks">
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#server hooks">
+                <i class="fa fa-link"></i>
+            </a>
+            Server Hooks
+        </h3>
+        <hr/>
+        
+            <h4 class="category-description" id="onserverinitialized">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onserverinitialized">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnServerInitialized
+            </h4>
+            <p class="category-content">Called after the server startup has been completed and is awaiting connections.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnServerInitialized()
+{
+    Puts("Grab game information after startup");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onserversave">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onserversave">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnServerSave
+            </h4>
+            <p class="category-content">Called before the server saves and shuts down.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnServerSave()
+{
+    Puts("A good time to save plugin data!");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onservershutdown">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onservershutdown">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnServerShutdown
+            </h4>
+            <p class="category-content">Called after plugins are unloaded and before the server shuts down process.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnServerShutdown()
+{
+    Puts("The server is shutting down, goodbye!");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+
+    <div class="category-info helper pt0">
+        <h3 class="category-title" id="player hooks">
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#player hooks">
+                <i class="fa fa-link"></i>
+            </a>
+            Player Hooks
+        </h3>
+        <hr/>
+        
+            <h4 class="category-description" id="canplayerconnect">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#canplayerconnect">
+                    <i class="fa fa-link"></i>
+                </a>
+                CanPlayerConnect
+            </h4>
+            <p class="category-content">Called when a player is attempting to connect to the server.<br/><b>Return behavior:</b> Return true/false to approve/reject.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private bool CanPlayerConnect(string name, string id, string ip)
+{
+    Puts($"Player {name} ({id}) at {ip} is attempting to connect...");
+    if (ip == "127.0.0.1") return false;
+    return true;
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onplayerapproved">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onplayerapproved">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnPlayerApproved
+            </h4>
+            <p class="category-content">Called after a player is approved to connect to the server.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnPlayerApproved(string name, string id, string ip)
+{
+    Puts($"Player {name} ({id}) at {ip} has been approved to login!");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onplayerbanned">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onplayerbanned">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnPlayerBanned
+            </h4>
+            <p class="category-content">Called when a player is banned by the server, the game developer, EAC, or VAC.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnPlayerBanned(string name, string id, string ip, string reason)
+{
+    Puts($"Player {name} ({id}) banned for {reason ?? "Unknown"} - {ip}");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+
+    <div class="category-info helper pt0">
+        <h3 class="category-title" id="permission hooks">
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#permission hooks">
+                <i class="fa fa-link"></i>
+            </a>
+            Permission Hooks
+        </h3>
+        <hr/>
+        
+            <h4 class="category-description" id="onplayergroupadded">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onplayergroupadded">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnPlayerGroupAdded
+            </h4>
+            <p class="category-content">Called when a player has been added to a group.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnPlayerGroupAdded(string id, string groupName)
+{
+    Puts($"Player '{id}' added to group: {groupName}");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onplayergroupremoved">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onplayergroupremoved">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnPlayerGroupRemoved
+            </h4>
+            <p class="category-content">Called when a player has been removed from a group.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnPlayerGroupRemoved(string id, string groupName)
+{
+    Puts($"Player '{id}' removed from group: {groupName}");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onplayerpermissiongranted">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onplayerpermissiongranted">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnPlayerPermissionGranted
+            </h4>
+            <p class="category-content">Called when a permission has been granted to a player.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnPlayerPermissionGranted(string id, string perm)
+{
+    Puts($"Player '{id}' granted permission: {perm}");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="onplayerpermissionrevoked">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#onplayerpermissionrevoked">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnPlayerPermissionRevoked
+            </h4>
+            <p class="category-content">Called when a permission has been revoked from a player.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnPlayerPermissionRevoked(string id, string perm)
+{
+    Puts($"Player '{id}' revoked permission: {perm}");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="ongrouppermissiongranted">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#ongrouppermissiongranted">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnGroupPermissionGranted
+            </h4>
+            <p class="category-content">Called when a permission has been granted to a group.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnGroupPermissionGranted(string name, string perm)
+{
+    Puts($"Group '{name}' granted permission: {perm}");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description" id="ongrouppermissionrevoked">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#ongrouppermissionrevoked">
+                    <i class="fa fa-link"></i>
+                </a>
+                OnGroupPermissionRevoked
+            </h4>
+            <p class="category-content">Called when a permission has been revoked from a group.<br/><b>Return behavior:</b> No return behavior.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+private void OnGroupPermissionRevoked(string name, string perm)
+{
+    Puts($"Group '{name}' revoked permission: {perm}");
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script src="/assets/js/all.js"></script>
+    <script src="/assets/js/prism.js"></script>
+    <script src="/assets/js/custom.js"></script>
+
+    <script type="text/javascript">(function() { if (window.location.href.indexOf("github.io") > -1) { window.location.replace(""); } })();</script>
+</body>
+</html>

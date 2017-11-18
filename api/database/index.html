@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en"><![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Universal modding platform and plugin API for Unity, .NET/C#, and soon C++ games" />
+
+    <title>uMod - Database</title>
+    <link rel="canonical" href="https://umod.org/api/database/"/>
+    <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="uMod" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96" />
+    <!--link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png" />-->
+
+    <meta property="og:title" content="uMod - Database">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="/assets/images/favicon-96x96.png">
+    <meta property="og:url" content="https://umod.org/api/database/">
+    <meta property="og:site_name" content="uMod">
+
+    <!--<meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Alt text for image">-->
+    <meta name="twitter:site" content="@theumod">
+    <!--<meta property="fb:app_id" content="your_app_id" />-->
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/prism.css" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/assets/js/github.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="page js-page">
+        <div class="page js-page ">
+    <div class="one-page-sidebar">
+        <div class="one-page-sidebar-header">
+            <div class="one-page-logo">
+                <a href="/api/" class="logo-image ">
+                    <img src="https://umod.org/assets/images/logos/umod-gray.png" alt="">
+                </a>
+            </div>
+            <div class="one-page-meta">
+                <ul class="one-page-meta-list">
+                    <li><a href="/"><i class="one-page-meta-list-icon fa fa-home"></i>Home</a></li>
+                    <li><a href=""><i class="one-page-meta-list-icon fa fa-github-alt"></i>GitHub</a></li>
+                    <li><a href="https://umod.org/forums/"><i class="one-page-meta-list-icon fa fa-support"></i>Forums</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="one-page-nav-wrapper js-custom-scrollbar">
+            <ul class="one-page-nav js-one-page-nav js-menu-vertical" data-prepend-to=".js-prepend-mobile-menu">
+	            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-info"></i></span>
+                                API Overview
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/getting-started/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-paper-plane-o"></i></span>
+                                Getting Started
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/style-guide/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-magic"></i></span>
+                                Style Guide
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/configurations/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-wrench"></i></span>
+                                Configurations
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/data-files/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-folder-open"></i></span>
+                                Data Files
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/timers/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-clock-o"></i></span>
+                                Timers
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/web-requests/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-external-link"></i></span>
+                                Web Requests
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/universal-hooks/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-bolt"></i></span>
+                                Universal Hooks
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/commands/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-terminal"></i></span>
+                                Commands
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="is-active">
+                            <a href="/api/database/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-database"></i></span>
+                                Database
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li class="">
+                            <a href="/api/definitions/" class="">
+                                <span class="one-page-nav-icon"><i class="fa fa-book"></i></span>
+                                Definitions
+                            </a>
+                        </li>
+                    
+                
+            </ul>
+        </div>
+        <footer class="one-page-sidebar-footer">
+            uMod and uMod.org &copy; 2017
+            <br />Built: Sat, 18 Nov 2017 07:19:56 +0000
+	    </footer>
+    </div>
+
+    <div class="one-page-content">
+        <header class="header large header-one-page ">
+            <div class="container-fluid container-spaced">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-5">
+                        <div class="visible-sm-block visible-xs-block">
+                            <a href="/api/" class="logo-image">
+                                <img src="https://umod.org/assets/images/logos/umod-gray.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-6 col-xs-7">
+                        <nav class="right helper">
+                            <ul class="menu sf-menu js-menu">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/download/">Download</a></li>
+                                <li><a href="/forums/">Forums</a></li>
+                                <li><a href="/faq/">FAQ</a></li>
+                                <li><a href="/changelog/">Changelog</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="content">
+            <div class="container-fluid container-spaced">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="js-prepend-mobile-menu"></div>
+                        <div class="row">
+    <div class="col-md-12">
+        <div class="category-info helper pt0" id="database">
+            <h3 class="category-title">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#database">
+                    <i class="fa fa-link"></i>
+                </a>
+                Database
+            </h3>
+        </div>
+        <hr/>
+        <p class="category-content">The uMod database extensions implement a generalized database abstraction layer for both MySQL and SQLite.</p>
+    </div>
+    <div class="col-md-6">
+        PLACEHOLDER MYSQL LOGO HERE
+        <h3>MySQL</h3>
+    </div>
+    <div class="col-md-6">
+        PLACEHOLDER SQLITE LOGO HERE
+        <h3>SQLite</h3>
+    </div>
+    
+    <div class="col-md-12">
+        
+    </div>
+    
+    <div class="col-md-12">
+        <div class="category-info helper pt0" id="sql-injections">
+            <h3 class="category-title">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#sql-injections">
+                    <i class="fa fa-link"></i>
+                </a>
+                SQL injections
+            </h3>
+            
+            <p class="category-content">
+                An SQL injection is a type of attack used to attack databases. This attack is executed by making use of malicious user input and often allows clients to manipulate a database at will.
+
+                Let's assume our table looks like this:
+                [CODE]+---+------+--------+
+                |id | name | name2  |
+                +---+------+--------+[/CODE]
+                id is some sort of integer, name and name2 are strings.
+                A possible query for this table might look like this:
+                [CODE]mysql.NewSql().Append("SELECT * FROM table WHERE name = \"" + arg[0] + "\" AND name2 = \"" + arg[1] + "\";")[/CODE]
+                Assuming arg[0] and arg[1] are input strings provided by the user, this query is vulnerable to SQL injections.
+
+                The first possible attack ends the query via a quote to inject custom SQL code after the input:
+                [CODE]arg[0] = "\"; DROP TABLE table;--"
+                arg[1] = ""[/CODE]
+                When combined with the SQL query, this results in the following query:
+                [CODE]SELECT * FROM table WHERE name = ""; DROP TABLE table;-- AND name2 = "";[/CODE]
+                First a select is executed, then the table is dropped and the rest is commented out.
+
+                The second possible attack ends the query via a quote to ignore the second condition name2 = "":
+                [CODE]arg[0] = "foo\";--"
+                arg[1] = ""[/CODE]
+                This results in the following query when combined:
+                [CODE]SELECT * FROM table WHERE name = "foo";-- AND name2 = "";[/CODE]
+                The select is executed without considering the second condition because the second condition is commented out.
+
+                The first attack is generally dangerous because you don't want your users to be able to delete your data, the second attack is dangerous in regards to bypassing authentication and leaking data.
+                Let's assume name and name2 are username and password, then the attacker would be able to authenticate as any user without the password being considered.
+                This might also result in the database leaking data when the result of the select can be accessed by the attacker, giving him access to data he shouldn't have access to.
+
+                There are more possible attack vectors than this. You should always protect yourself against SQL injections when user input is involved.
+            </p>
+            <h4 class="category-description">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#preventing-sql-injections">
+                    <i class="fa fa-link"></i>
+                </a>
+                Preventing SQL injections
+            </h4>
+            <p class="category-content">
+                There are effectively two different types of mechanisms in uMod that help with preventing SQL injections. The following applies to both the SQLite and the MySQL extension, the only difference being that MySQL is replaced with SQLite.
+
+                The first one prevents multiple queries being executed in a single .Append() call, meaning the following code is invalid when added to the SQL query in a single call:
+                [CODE]SELECT * FROM table; DROP TABLE table;[/CODE]
+                This automatically prevents the first kind of attack I mentioned, as the attacker cannot drop the table after ending the query with a quote.
+
+                The second one prevents all kinds of attacks using parameterized queries.
+                Parameterized queries are queries where user input is replaced with a placeholder. The SQL driver then parses the parameterized query, removes malicious code from user input and inserts the clean user input into the placeholders.
+                In Oxide, our query from above can be written as a parameterized query as follows:
+                [CODE]mysql.NewSql().Append("SELECT * FROM table WHERE name = @0 AND name2 = @1;", arg[0], arg[1])[/CODE]
+                @0 and @1 are the placeholders for the arguments provided in the varargs list after the query in our .Append() call.
+                @0 refers to the first argument supplied, in this case arg[0], while @1 refers to the second argument supplied, in this case arg[1].
+                Placeholders may not be enclosed by quotation marks.
+                This parameterized query protects the database from the full spectrum of SQL injections.
+                The actual C# syntax is very similar, just that you may use [CODE]new Sql(query, args)[/CODE] instead of [CODE]mysql.NewSql().Append(query, args)[/CODE]
+
+                To sum it up, use parameterized queries whenever possible, even when input isn't derived from user input, as you might change that in the future and then forget that this kind of input isn't protected against SQL injections.
+            </p>
+        </div>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script src="/assets/js/all.js"></script>
+    <script src="/assets/js/prism.js"></script>
+    <script src="/assets/js/custom.js"></script>
+
+    <script type="text/javascript">(function() { if (window.location.href.indexOf("github.io") > -1) { window.location.replace(""); } })();</script>
+</body>
+</html>
