@@ -287,7 +287,7 @@
         </div>
         <footer class="one-page-sidebar-footer">
             uMod and uMod.org &copy; 2017
-            <br />Built: Thu, 23 Nov 2017 20:34:22 +0000
+            <br />Built: Sun, 03 Dec 2017 14:59:56 +0000
 	    </footer>
     </div>
 
@@ -334,16 +334,215 @@
         <hr/>
         <p class="category-content">The uMod database extensions implement a generalized database abstraction layer for both MySQL and SQLite.</p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 text-center">
         PLACEHOLDER MYSQL LOGO HERE
         <h3>MySQL</h3>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 text-center">
         PLACEHOLDER SQLITE LOGO HERE
         <h3>SQLite</h3>
     </div>
     
     <div class="col-md-12">
+        
+            <h4 class="category-description">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#open-mysql-connection">
+                    <i class="fa fa-link"></i>
+                </a>
+                Open MySQL connection
+            </h4>
+            <p class="category-content">Create a new connection to a MySql database by providing an address (URI & port), a database name, and authentication credentials.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+
+var MySqlLibrary = Interface.Oxide.GetLibrary<Core.MySql.Libraries.MySql>();
+
+var MySqlConnection = MySqlLibrary.OpenDb("localhost", 3306, "rust", "username", "password", this);
+
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#close-mysql-connection">
+                    <i class="fa fa-link"></i>
+                </a>
+                Close MySql connection
+            </h4>
+            <p class="category-content">Close an existing connection to a MySql database.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+
+MySqlLibrary.CloseDb(MySqlConnection);
+
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#query-mysql-database">
+                    <i class="fa fa-link"></i>
+                </a>
+                Query MySql database
+            </h4>
+            <p class="category-content">Retrieve data from a MySql database, typically using a SELECT statement.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+
+var SelectQuery = "SELECT `id`, `field1`, `field2` FROM example_table";
+var SelectCommand = Oxide.Core.Database.Sql.Builder.Append(SelectQuery);
+
+MySqlLibrary.Query(SelectCommand, MySqlConnection, list =>
+{
+    if(list == null) return; // empty result or no records found
+    
+    var sb = new StringBuilder();
+    sb.AppendLine(" id\tfield1\tfield2");
+    
+    // iterate through resulting records
+    foreach (var entry in list)
+    {
+        sb.AppendFormat(" {0}\t{1}\t{2}\n", entry["id"], entry["field1"], entry["field2"]);
+    }
+    
+    Puts(sb.ToString());
+});
+
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#insert-query">
+                    <i class="fa fa-link"></i>
+                </a>
+                Insert query
+            </h4>
+            <p class="category-content">Insert records into a MySql database using an INSERT statement.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+
+var SQLQuery = "INSERT INTO example_table (`field1`, `field2`) VALUES (@0, @1);";
+
+var InsertCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, "field1 value", "field2 value");
+
+MySqlLibrary.Insert(InsertCommand, MySqlConnection, rowsAffected => 
+{
+    if(rowsAffected > 0) 
+    {
+        Puts("New record inserted with ID: {0}", MySqlConnection.LastInsertRowId);
+    }
+});
+
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#update-query">
+                    <i class="fa fa-link"></i>
+                </a>
+                Update query
+            </h4>
+            <p class="category-content">Update existing records in a MySql database using an UPDATE statement.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+
+var SQLQuery = "UPDATE example_table SET `field1` = @0, `field2` = @1 WHERE `id` = @3;";
+
+var exampleID = 2;
+
+var UpdateCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, "field1 value", "field2 value", exampleID);
+
+MySqlLibrary.Update(UpdateCommand, MySqlConnection, rowsAffected => 
+{
+    if(rowsAffected > 0) 
+    {
+        Puts("Record successfully updated!");
+    }
+});
+
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#delete-query">
+                    <i class="fa fa-link"></i>
+                </a>
+                Delete query
+            </h4>
+            <p class="category-content">Delete existing records from a MySql database using a DELETE statement.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+
+var SQLQuery = "DELETE FROM example_table WHERE `id` = @0;";
+
+var exampleID = 2;
+
+var DeleteCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, exampleID);
+
+MySqlLibrary.Delete(DeleteCommand, MySqlConnection, rowsAffected => 
+{
+    if(rowsAffected > 0) 
+    {
+        Puts("Record successfully deleted!");
+    }
+});
+
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        
+            <h4 class="category-description">
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#non-query">
+                    <i class="fa fa-link"></i>
+                </a>
+                Non-query
+            </h4>
+            <p class="category-content">By definition a non-query is a query which modifies data and does not retrieve data.  Insert, Update, and Delete queries are all considered non-queries.</p>
+            <div class="tabs js-tabs code-highlight-tabs">
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+
+var SQLQuery = "UPDATE example_table SET `field1` = @0, `field2` = @1 WHERE `id` = @3;";
+
+var exampleID = 2;
+
+var SQLCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, "field1 value", "field2 value", exampleID);
+
+MySqlLibrary.ExecuteNonQuery(SQLCommand, MySqlConnection);
+
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
         
     </div>
     
