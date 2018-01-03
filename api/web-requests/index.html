@@ -60,7 +60,7 @@
             <div class="one-page-meta">
                 <ul class="one-page-meta-list">
                     <li><a href="/"><i class="one-page-meta-list-icon fa fa-home"></i>Home</a></li>
-                    <li><a href="http://github.com/umods"><i class="one-page-meta-list-icon fa fa-github-alt"></i>GitHub</a></li>
+                    <li><a href="http://github.com/theumod"><i class="one-page-meta-list-icon fa fa-github-alt"></i>GitHub</a></li>
                     <li><a href="https://forums.umod.org"><i class="one-page-meta-list-icon fa fa-support"></i>Forums</a></li>
                 </ul>
             </div>
@@ -328,7 +328,7 @@
         </div>
         <footer class="one-page-sidebar-footer">
             uMod and uMod.org &copy; 2018
-            <br />Built: Tue, 02 Jan 2018 16:58:40 +0000
+            <br />Built: Wed, 03 Jan 2018 16:31:06 +0000
 	    </footer>
     </div>
 
@@ -387,7 +387,7 @@
                     <span class="js-copy-to-clipboard copy-code">copy</span>
                     <pre><code class="language-csharp js-code ghostIn">
 
-webrequest.EnqueueGet("http://www.google.com/search?q=umod", (code, response) =>
+webrequest.Enqueue("http://www.google.com/search?q=umod", null, (code, response) =>
 {
     if (code != 200 || response == null)
     {
@@ -395,7 +395,7 @@ webrequest.EnqueueGet("http://www.google.com/search?q=umod", (code, response) =>
         return;
     }
     Puts($"Google answered: {response}");
-}
+}, this, RequestMethod.GET);
                     </code></pre>
                 </div>
             </div>
@@ -414,7 +414,7 @@ webrequest.EnqueueGet("http://www.google.com/search?q=umod", (code, response) =>
                     <span class="js-copy-to-clipboard copy-code">copy</span>
                     <pre><code class="language-csharp js-code ghostIn">
 
-webrequest.EnqueuePost("http://www.google.com/search?q=umod", "param1=value1", (code, response) =>
+webrequest.Enqueue("http://www.google.com/search?q=umod", "param1=value1", (code, response) =>
 {
     if (code != 200 || response == null)
     {
@@ -422,7 +422,7 @@ webrequest.EnqueuePost("http://www.google.com/search?q=umod", "param1=value1", (
         return;
     }
     Puts($"Google answered: {response}");
-}
+}, this, RequestMethod.POST);
                     </code></pre>
                 </div>
             </div>
@@ -441,7 +441,7 @@ webrequest.EnqueuePost("http://www.google.com/search?q=umod", "param1=value1", (
                     <span class="js-copy-to-clipboard copy-code">copy</span>
                     <pre><code class="language-csharp js-code ghostIn">
 
-webrequest.EnqueuePut("http://www.google.com/search?q=umod", (code, response) =>
+webrequest.Enqueue("http://www.google.com/search?q=umod", null, (code, response) =>
 {
     if (code != 200 || response == null)
     {
@@ -449,7 +449,7 @@ webrequest.EnqueuePut("http://www.google.com/search?q=umod", (code, response) =>
         return;
     }
     Puts($"Google answered: {response}");
-}
+}, this, RequestMethod.PUT);
                     </code></pre>
                 </div>
             </div>
@@ -474,7 +474,7 @@ parameters.Add("param1", "value1");
 parameters.Add("param2", "value2");
 
 var body = string.Join("&", parameters.Cast<string>().Select(key => string.Format("{0}={1}", key, source[key]));
-webrequest.EnqueuePost("http://www.google.com/search?q=umod", body, (code, response) =>
+webrequest.Enqueue("http://www.google.com/search?q=umod", body, (code, response) =>
 {
     if (code != 200 || response == null)
     {
@@ -482,7 +482,7 @@ webrequest.EnqueuePost("http://www.google.com/search?q=umod", body, (code, respo
         return;
     }
     Puts($"Google answered: {response}");
-}
+}, this, RequestMethod.POST);
                     </code></pre>
                 </div>
             </div>
@@ -544,7 +544,8 @@ private void GetRequest(IPlayer player, string command, string[] args)
     // Set some custom request headers (eg. for HTTP Basic Auth)
     var headers = new Dictionary<string, string> { { "header", "value" } };
 
-    webrequest.EnqueueGet("http://www.google.com/search?q=umod", (code, response) => GetCallback(code, response, player), this, headers, timeout);
+    webrequest.Enqueue("http://www.google.com/search?q=umod", null, (code, response) =>
+        GetCallback(code, response, player), this, RequestMethod.GET, headers, timeout);
 }
 
 private void GetCallback(int code, string response, IPlayer player)

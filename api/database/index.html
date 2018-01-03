@@ -60,7 +60,7 @@
             <div class="one-page-meta">
                 <ul class="one-page-meta-list">
                     <li><a href="/"><i class="one-page-meta-list-icon fa fa-home"></i>Home</a></li>
-                    <li><a href="http://github.com/umods"><i class="one-page-meta-list-icon fa fa-github-alt"></i>GitHub</a></li>
+                    <li><a href="http://github.com/theumod"><i class="one-page-meta-list-icon fa fa-github-alt"></i>GitHub</a></li>
                     <li><a href="https://forums.umod.org"><i class="one-page-meta-list-icon fa fa-support"></i>Forums</a></li>
                 </ul>
             </div>
@@ -328,7 +328,7 @@
         </div>
         <footer class="one-page-sidebar-footer">
             uMod and uMod.org &copy; 2018
-            <br />Built: Tue, 02 Jan 2018 16:58:40 +0000
+            <br />Built: Wed, 03 Jan 2018 16:31:06 +0000
 	    </footer>
     </div>
 
@@ -401,10 +401,8 @@
                         <span class="js-copy-to-clipboard copy-code">copy</span>
                         <pre><code class="language-csharp js-code ghostIn">
 
-var MySqlLibrary = Interface.Oxide.GetLibrary<Core.MySql.Libraries.MySql>();
-
-var MySqlConnection = MySqlLibrary.OpenDb("localhost", 3306, "rust", "username", "password", this);
-
+var sqlLibrary = Interface.Oxide.GetLibrary<Core.MySql.Libraries.MySql>();
+var sqlConnection = mySqlLibrary.OpenDb("localhost", 3306, "rust", "username", "password", this);
                         </code></pre>
                     </div>
                 </div>
@@ -423,8 +421,7 @@ var MySqlConnection = MySqlLibrary.OpenDb("localhost", 3306, "rust", "username",
                         <span class="js-copy-to-clipboard copy-code">copy</span>
                         <pre><code class="language-csharp js-code ghostIn">
 
-MySqlLibrary.CloseDb(MySqlConnection);
-
+sqlLibrary.CloseDb(sqlConnection);
                         </code></pre>
                     </div>
                 </div>
@@ -443,25 +440,24 @@ MySqlLibrary.CloseDb(MySqlConnection);
                         <span class="js-copy-to-clipboard copy-code">copy</span>
                         <pre><code class="language-csharp js-code ghostIn">
 
-var SelectQuery = "SELECT `id`, `field1`, `field2` FROM example_table";
-var SelectCommand = Oxide.Core.Database.Sql.Builder.Append(SelectQuery);
+var sqlQuery = "SELECT `id`, `field1`, `field2` FROM example_table";
+var selectCommand = Oxide.Core.Database.Sql.Builder.Append(sqlQuery);
 
-MySqlLibrary.Query(SelectCommand, MySqlConnection, list =>
+sqlLibrary.Query(selectCommand, sqlConnection, list =>
 {
-    if(list == null) return; // empty result or no records found
-    
-    var sb = new StringBuilder();
-    sb.AppendLine(" id\tfield1\tfield2");
-    
-    // iterate through resulting records
+    if (list == null) return; // Empty result or no records found
+
+    var newString = new StringBuilder();
+    newString.AppendLine(" id\tfield1\tfield2");
+
+    // Iterate through resulting records
     foreach (var entry in list)
     {
-        sb.AppendFormat(" {0}\t{1}\t{2}\n", entry["id"], entry["field1"], entry["field2"]);
+        newString.AppendFormat(" {0}\t{1}\t{2}\n", entry["id"], entry["field1"], entry["field2"]);
     }
-    
-    Puts(sb.ToString());
-});
 
+    Puts(newString.ToString());
+});
                         </code></pre>
                     </div>
                 </div>
@@ -480,18 +476,16 @@ MySqlLibrary.Query(SelectCommand, MySqlConnection, list =>
                         <span class="js-copy-to-clipboard copy-code">copy</span>
                         <pre><code class="language-csharp js-code ghostIn">
 
-var SQLQuery = "INSERT INTO example_table (`field1`, `field2`) VALUES (@0, @1);";
+var sqlQuery = "INSERT INTO example_table (`field1`, `field2`) VALUES (@0, @1);";
+var insertCommand = Oxide.Core.Database.Sql.Builder.Append(sqlQuery, "field1 value", "field2 value");
 
-var InsertCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, "field1 value", "field2 value");
-
-MySqlLibrary.Insert(InsertCommand, MySqlConnection, rowsAffected => 
+sqlLibrary.Insert(insertCommand, sqlConnection, rowsAffected =>
 {
-    if(rowsAffected > 0) 
+    if (rowsAffected > 0)
     {
-        Puts("New record inserted with ID: {0}", MySqlConnection.LastInsertRowId);
+        Puts("New record inserted with ID: {0}", sqlConnection.LastInsertRowId);
     }
 });
-
                         </code></pre>
                     </div>
                 </div>
@@ -510,20 +504,17 @@ MySqlLibrary.Insert(InsertCommand, MySqlConnection, rowsAffected =>
                         <span class="js-copy-to-clipboard copy-code">copy</span>
                         <pre><code class="language-csharp js-code ghostIn">
 
-var SQLQuery = "UPDATE example_table SET `field1` = @0, `field2` = @1 WHERE `id` = @3;";
+var exampleId = 2;
+var sqlQuery = "UPDATE example_table SET `field1` = @0, `field2` = @1 WHERE `id` = @3;";
+var updateCommand = Oxide.Core.Database.Sql.Builder.Append(sqlQuery, "field1 value", "field2 value", exampleId);
 
-var exampleID = 2;
-
-var UpdateCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, "field1 value", "field2 value", exampleID);
-
-MySqlLibrary.Update(UpdateCommand, MySqlConnection, rowsAffected => 
+sqlLibrary.Update(updateCommand, sqlConnection, rowsAffected =>
 {
-    if(rowsAffected > 0) 
+    if (rowsAffected > 0)
     {
         Puts("Record successfully updated!");
     }
 });
-
                         </code></pre>
                     </div>
                 </div>
@@ -542,20 +533,17 @@ MySqlLibrary.Update(UpdateCommand, MySqlConnection, rowsAffected =>
                         <span class="js-copy-to-clipboard copy-code">copy</span>
                         <pre><code class="language-csharp js-code ghostIn">
 
-var SQLQuery = "DELETE FROM example_table WHERE `id` = @0;";
+var exampleId = 2;
+var sqlQuery = "DELETE FROM example_table WHERE `id` = @0;";
+var deleteCommand = Oxide.Core.Database.Sql.Builder.Append(sqlQuery, exampleId);
 
-var exampleID = 2;
-
-var DeleteCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, exampleID);
-
-MySqlLibrary.Delete(DeleteCommand, MySqlConnection, rowsAffected => 
+sqlLibrary.Delete(deleteCommand, sqlConnection, rowsAffected =>
 {
-    if(rowsAffected > 0) 
+    if (rowsAffected > 0)
     {
         Puts("Record successfully deleted!");
     }
 });
-
                         </code></pre>
                     </div>
                 </div>
@@ -574,14 +562,11 @@ MySqlLibrary.Delete(DeleteCommand, MySqlConnection, rowsAffected =>
                         <span class="js-copy-to-clipboard copy-code">copy</span>
                         <pre><code class="language-csharp js-code ghostIn">
 
-var SQLQuery = "UPDATE example_table SET `field1` = @0, `field2` = @1 WHERE `id` = @3;";
+var exampleId = 2;
+var sqlQuery = "UPDATE example_table SET `field1` = @0, `field2` = @1 WHERE `id` = @3;";
+var sqlCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, "field1 value", "field2 value", exampleId);
 
-var exampleID = 2;
-
-var SQLCommand = Oxide.Core.Database.Sql.Builder.Append(SQLQuery, "field1 value", "field2 value", exampleID);
-
-MySqlLibrary.ExecuteNonQuery(SQLCommand, MySqlConnection);
-
+sqlLibrary.ExecuteNonQuery(sqlCommand, sqlConnection);
                         </code></pre>
                     </div>
                 </div>
