@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 
 namespace Oxide.Plugins
 {
-    [Info("EnhancedBanSystem", "Reneb/Slut", "5.1.11", ResourceId = 1951)]
+    [Info("EnhancedBanSystem", "Reneb/Slut", "5.1.12", ResourceId = 1951)]
     class EnhancedBanSystem : CovalencePlugin
     {
         [PluginReference]
@@ -693,7 +693,17 @@ namespace Oxide.Plugins
             var f = cachedBans.Values.Where(x => x.ip == bandata.ip).Where(x => x.steamid == bandata.steamid).ToList();
             if (f.Count > 0)
             {
-                return FormatReturn(BanSystem.Files, GetMsg("BanExists"), f[0].ToString());
+                var i = f.ToList();
+                foreach (var id in i)
+                {
+                    if (id.expire == 0.0 || id.expire < LogTime()) continue;
+                    storedData.Banlist.Remove(id.ToJson());
+                    f.Remove(id);
+                }
+                if (f.Count > 0)
+                {
+                    return FormatReturn(BanSystem.Files, GetMsg("BanExists"), f[0].ToString());
+                }
             }
             storedData.Banlist.Add(bandata.ToJson());
             Save_Files();
