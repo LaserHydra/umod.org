@@ -98,10 +98,8 @@
         <div class="main-content">
             <p>
                 
-                    # EnhancedBanSystem
-Ban players by Steam ID, IP address, local ban list, or remote ban list
-
-Features:
+                    
+<p>Features:
 - MySQL support
 - SQLite support
 - Local Files support
@@ -109,39 +107,39 @@ Features:
 - WebRequests support
 - Native Oxide ban system support
 - Ban/Unban by SteamID
-- Ban/Unban by IP Range (XX.*.*.*, XX.XX.*.*, XX.XX.XX.*)
+- Ban/Unban by IP Range (XX.<em>.</em>.<em>, XX.XX.</em>.<em>, XX.XX.XX.</em>)
 - Ban/Unban by Name
 - Ban/Unban by IP
 - Banlist features
 - Multiple database support (MySQL + Native Oxide for exemple)
 - Temporary ban support
 - Ban evasion support (players changing steamid or ip)
-- Auto kick on ban players matching
+- Auto kick on ban players matching</p>
 
-PlayerDatabase is not needed but strongly recommended (so you can ban offline players by steamid + ip)
+<p>PlayerDatabase is not needed but strongly recommended (so you can ban offline players by steamid + ip)</p>
 
-Usage:
+<p>Usage:
 Chat/Console Commands:
-/ban   
+/ban &lt;name/steamID/IP/RangeIP&gt; <optional: time=""> <optional: reason="">
 If no time is given the ban is permanently.
 Examples:
 /ban Domestos noob - will ban Domestos permanently
 /ban Domestos 20m noob - will ban Domestos for 20 minutes
 /ban Domestos 3h noob - will ban Domestos for 3 hours
 /ban Domestos 10d noob - will ban Domestos for 10 days
-/ban 86.87.*.* "Domestos IP Range" - This will permanently ban all those ip ranges
+/ban 86.87.*.* "Domestos IP Range" - This will permanently ban all those ip ranges</optional:></optional:></p>
 
-/unban 
-/kick  
-/banlist  
+<p>/unban &lt;name/steamID/IP/RangeIP&gt;
+/kick &lt;name/steamID/IP/RangeIP&gt; <reason>
+/banlist <BanSystem> <optional: startid=""></optional:></BanSystem></reason></p>
 
-Permissions:
+<p>Permissions:
 The config offers options to set different permissions for every command so you can control which user can use which commands.
 Default permissions are:
-ban - "enhancedbansystem.ban"
-unban - "enhancedbansystem.unban"
-kick - "enhancedbansystem.kick"
-banlist - "enhancedbansystem.banlist"
+ban - &#8220;enhancedbansystem.ban&#8221;
+unban - &#8220;enhancedbansystem.unban&#8221;
+kick - &#8220;enhancedbansystem.kick&#8221;
+banlist - &#8220;enhancedbansystem.banlist&#8221;</p>
 
                 
             </p>
@@ -157,6 +155,7 @@ banlist - "enhancedbansystem.banlist"
             <div class="widget">
                 <div class="">
                     <a href="EnhancedBanSystem.cs" class="button helper mb30 large full blue" download="EnhancedBanSystem.cs">Download Now</a>
+                    <a href="https://github.com/umods/EnhancedBanSystem" class="button helper mb30 large full green">Source</a>
                 </div>
             </div>
             <!--<div class="widget">
@@ -284,7 +283,7 @@ banlist - "enhancedbansystem.banlist"
                                     <p class="copyright helper right">
 	                                    The uMod Project and uMod.org &copy; 2018
 	                                </p>
-	                                <p class="copyright helper right">Built: Thu, 04 Jan 2018 08:04:23 +0000</p>
+	                                <p class="copyright helper right">Built: Thu, 04 Jan 2018 16:25:48 +0000</p>
                                 </div>
                             </div>
                         </div>
