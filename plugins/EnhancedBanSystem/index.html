@@ -101,6 +101,48 @@
                     # EnhancedBanSystem
 Ban players by Steam ID, IP address, local ban list, or remote ban list
 
+Features:
+- MySQL support
+- SQLite support
+- Local Files support
+- PlayerDatabase support
+- WebRequests support
+- Native Oxide ban system support
+- Ban/Unban by SteamID
+- Ban/Unban by IP Range (XX.*.*.*, XX.XX.*.*, XX.XX.XX.*)
+- Ban/Unban by Name
+- Ban/Unban by IP
+- Banlist features
+- Multiple database support (MySQL + Native Oxide for exemple)
+- Temporary ban support
+- Ban evasion support (players changing steamid or ip)
+- Auto kick on ban players matching
+
+PlayerDatabase is not needed but strongly recommended (so you can ban offline players by steamid + ip)
+
+Usage:
+Chat/Console Commands:
+/ban   
+If no time is given the ban is permanently.
+Examples:
+/ban Domestos noob - will ban Domestos permanently
+/ban Domestos 20m noob - will ban Domestos for 20 minutes
+/ban Domestos 3h noob - will ban Domestos for 3 hours
+/ban Domestos 10d noob - will ban Domestos for 10 days
+/ban 86.87.*.* "Domestos IP Range" - This will permanently ban all those ip ranges
+
+/unban 
+/kick  
+/banlist  
+
+Permissions:
+The config offers options to set different permissions for every command so you can control which user can use which commands.
+Default permissions are:
+ban - "enhancedbansystem.ban"
+unban - "enhancedbansystem.unban"
+kick - "enhancedbansystem.kick"
+banlist - "enhancedbansystem.banlist"
+
                 
             </p>
         </div>
@@ -242,7 +284,7 @@ Ban players by Steam ID, IP address, local ban list, or remote ban list
                                     <p class="copyright helper right">
 	                                    The uMod Project and uMod.org &copy; 2018
 	                                </p>
-	                                <p class="copyright helper right">Built: Thu, 04 Jan 2018 07:40:26 +0000</p>
+	                                <p class="copyright helper right">Built: Thu, 04 Jan 2018 08:04:23 +0000</p>
                                 </div>
                             </div>
                         </div>
