@@ -96,53 +96,65 @@
         <div class="row">
     <div class="col-md-9">
         <div class="main-content">
-            <p>
-                
-                    
-<p>Features:
-- MySQL support
-- SQLite support
-- Local Files support
-- PlayerDatabase support
-- WebRequests support
-- Native Oxide ban system support
-- Ban/Unban by SteamID
-- Ban/Unban by IP Range (XX.<em>.</em>.<em>, XX.XX.</em>.<em>, XX.XX.XX.</em>)
-- Ban/Unban by Name
-- Ban/Unban by IP
-- Banlist features
-- Multiple database support (MySQL + Native Oxide for exemple)
-- Temporary ban support
-- Ban evasion support (players changing steamid or ip)
-- Auto kick on ban players matching</p>
+            
+                <h2 id="features">Features</h2>
 
-<p>PlayerDatabase is not needed but strongly recommended (so you can ban offline players by steamid + ip)</p>
+<ul>
+  <li>MySQL support</li>
+  <li>SQLite support</li>
+  <li>Local Files support</li>
+  <li>PlayerDatabase support</li>
+  <li>WebRequests support</li>
+  <li>Native Oxide ban system support</li>
+  <li>Ban/Unban by SteamID</li>
+  <li>Ban/Unban by IP Range <code>(XX.*.*.*, XX.XX.*.*, XX.XX.XX.*)</code></li>
+  <li>Ban/Unban by Name</li>
+  <li>Ban/Unban by IP</li>
+  <li>Banlist features</li>
+  <li>Multiple database support <em>(MySQL + native Oxide for example)</em></li>
+  <li>Temporary ban support</li>
+  <li>Ban evasion support <em>(players changing Steam ID or IP)</em></li>
+  <li>Auto kick on ban players matching</li>
+</ul>
 
-<p>Usage:
-Chat/Console Commands:
-/ban &lt;name/steamID/IP/RangeIP&gt; <optional: time=""> <optional: reason="">
-If no time is given the ban is permanently.
-Examples:
-/ban Domestos noob - will ban Domestos permanently
-/ban Domestos 20m noob - will ban Domestos for 20 minutes
-/ban Domestos 3h noob - will ban Domestos for 3 hours
-/ban Domestos 10d noob - will ban Domestos for 10 days
-/ban 86.87.*.* "Domestos IP Range" - This will permanently ban all those ip ranges</optional:></optional:></p>
+<p><strong>PlayerDatabase</strong> is not needed but strongly recommended <em>(so you can ban offline players by Steam ID + IP)</em>.</p>
 
-<p>/unban &lt;name/steamID/IP/RangeIP&gt;
-/kick &lt;name/steamID/IP/RangeIP&gt; <reason>
-/banlist <BanSystem> <optional: startid=""></optional:></BanSystem></reason></p>
+<h2 id="usage">Usage</h2>
 
-<p>Permissions:
-The config offers options to set different permissions for every command so you can control which user can use which commands.
-Default permissions are:
-ban - &#8220;enhancedbansystem.ban&#8221;
-unban - &#8220;enhancedbansystem.unban&#8221;
-kick - &#8220;enhancedbansystem.kick&#8221;
-banlist - &#8220;enhancedbansystem.banlist&#8221;</p>
+<h3 id="chatconsole-commands">Chat/Console Commands</h3>
 
-                
-            </p>
+<ul>
+  <li>/ban <code>&lt;name/steamID/IP/RangeIP&gt;</code> <code>&lt;optional: time&gt;</code> <code>&lt;optional: reason&gt;</code>
+If no time is given the ban is permanently.</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<ul>
+  <li>/ban Domestos noob - will ban Domestos permanently</li>
+  <li>/ban Domestos 20m noob - will ban Domestos for 20 minutes</li>
+  <li>/ban Domestos 3h noob - will ban Domestos for 3 hours</li>
+  <li>/ban Domestos 10d noob - will ban Domestos for 10 days</li>
+  <li>/ban <code>86.87.*.*</code> &#8220;Domestos IP Range&#8221; - This will permanently ban all those ip ranges</li>
+  <li>/unban <code>&lt;name/steamID/IP/RangeIP&gt;</code></li>
+  <li>/kick <code>&lt;name/steamID/IP/RangeIP&gt;</code> <code>&lt;reason&gt;</code></li>
+  <li>/banlist <code>&lt;BanSystem&gt;</code> <code>&lt;optional: startid&gt;</code></li>
+</ul>
+
+<h2 id="permissions">Permissions</h2>
+
+<p>The config offers options to set different permissions for every command so you can control which user can use which commands.</p>
+
+<h3 id="default-permissions-are">Default permissions are:</h3>
+
+<ul>
+  <li>ban - enhancedbansystem.ban</li>
+  <li>unban - enhancedbansystem.unban</li>
+  <li>kick - enhancedbansystem.kick</li>
+  <li>banlist - enhancedbansystem.banlist</li>
+</ul>
+
+            
         </div>
     </div>
     <div class="col-md-3 hidden-sm hidden-xs">
@@ -283,7 +295,7 @@ banlist - &#8220;enhancedbansystem.banlist&#8221;</p>
                                     <p class="copyright helper right">
 	                                    The uMod Project and uMod.org &copy; 2018
 	                                </p>
-	                                <p class="copyright helper right">Built: Thu, 04 Jan 2018 16:25:48 +0000</p>
+	                                <p class="copyright helper right">Built: Thu, 04 Jan 2018 17:13:57 +0000</p>
                                 </div>
                             </div>
                         </div>
