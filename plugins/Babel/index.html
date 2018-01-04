@@ -151,38 +151,37 @@
 <h2 id="configuration">Configuration</h2>
 
 <p>You can configure the settings in the <em>Babel.json</em> file under the <em>oxide/config</em> directory.
-<code>javascript
+~~~ javascript
 {
-  "API key (if required)": "",
-  "Translation service": "google"
+  &#8220;API key (if required)&#8221;: &#8220;&#8221;,
+  &#8220;Translation service&#8221;: &#8220;google&#8221;
 }
-</code></p>
+~~~</p>
 
 <h2 id="plugin-developers">Plugin Developers</h2>
 
 <p>To call the methods provided by this plugin, your plugin needs to get the plugin reference. You can do this a couple different ways depending on if it optionally depends on it or requires it.</p>
 
 <p>If your plugin requires this plugin and is written in C#, you can use the following at the top of your plugin:
-<code>csharp
+~~~ csharp
 // Requires: Babel
-</code>
+~~~
 For C# plugins, you&#8217;ll need to get the plugin&#8217;s reference as such:
-<code>csharp
+~~~ csharp
 [PluginReference]
 private Plugin Babel;
-</code>
+~~~
 Now that you have the plugin reference, you call the provided methods:
-<code>csharp
-Babel?.Call("Translate", "Hello world!", "en", "auto");
-</code>
+~~~ csharp
+Babel?.Call(&#8220;Translate&#8221;, &#8220;Hello world!&#8221;, &#8220;en&#8221;, &#8220;auto&#8221;);
+~~~
 Note: The above examples are not using the optional Action<string> callback parameters. For examples of how to use these, see Babel Chat or other plugins that use this plugin.</string></p>
 
 <h2 id="api-methods">API Methods</h2>
 
-<p><code>csharp
-Translate(string message, string to, string from = "auto", Action&lt;string&gt; callback = null)
-</code>
-Translates text from one language to another another</p>
+<pre><code class="language-csharp">Translate(string message, string to, string from = "auto", Action&lt;string&gt; callback = null)
+</code></pre>
+<p>Translates text from one language to another another</p>
 
                 <!-- TODO: Inject anchors for headings
                 <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#babel">
@@ -322,7 +321,7 @@ Translates text from one language to another another</p>
                                     <p class="copyright helper right">
 	                                    The uMod Project and uMod.org &copy; 2018
 	                                </p>
-	                                <p class="copyright helper right">Built: Thu, 04 Jan 2018 21:09:13 +0000</p>
+	                                <p class="copyright helper right">Built: Thu, 04 Jan 2018 21:14:37 +0000</p>
                                 </div>
                             </div>
                         </div>
