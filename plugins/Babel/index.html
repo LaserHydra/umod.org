@@ -103,9 +103,9 @@
   <li><a href="#supported-services">Supported Services</a>
     <ul>
       <li><a href="#google-free">Google (free)</a></li>
-      <li><a href="#googlehttpscloudgooglecomtranslate-paid">Google (paid)</a></li>
-      <li><a href="#microsofthttpswwwmicrosoftcomen-ustranslatortranslatorapiaspx-v1-api-only-free-and-paid">Microsoft (v1 API only, free and paid)</a></li>
-      <li><a href="#yandexhttpstechyandexcomtranslate-free-and-paid">Yandex (free and paid)</a></li>
+      <li><a href="#google-paid">Google (paid)</a></li>
+      <li><a href="#microsoft-v1-api-only-free-and-paid">Microsoft (v1 API only, free and paid)</a></li>
+      <li><a href="#yandex-free-and-paid">Yandex (free and paid)</a></li>
     </ul>
   </li>
   <li><a href="#configuration">Configuration</a></li>
@@ -126,34 +126,37 @@
   <li><strong>API key:</strong> None! This isn&#8217;t really an API, it&#8217;s just scraping a webpage</li>
 </ul>
 
-<h3 id="googlehttpscloudgooglecomtranslate-paid"><a href="https://cloud.google.com/translate/">Google</a> (paid)</h3>
+<h3 id="google-paid">Google (paid)</h3>
 
 <ul>
   <li><strong>Limits:</strong> 2 million characters per day and 100,000 characters per 100 seconds</li>
   <li><strong>API key:</strong> You can get an API key by creating an application on the console</li>
   <li><strong>Bonus:</strong> Trial + $300 credit to spend on Google Cloud Platform over 60 days</li>
+  <li>https://cloud.google.com/translate/</li>
 </ul>
 
-<h3 id="microsofthttpswwwmicrosoftcomen-ustranslatortranslatorapiaspx-v1-api-only-free-and-paid"><a href="https://www.microsoft.com/en-us/translator/translatorapi.aspx">Microsoft</a> (v1 API only, free and paid)</h3>
+<h3 id="microsoft-v1-api-only-free-and-paid">Microsoft (v1 API only, free and paid)</h3>
 
 <ul>
   <li><strong>Limits:</strong> 2 million characters per month on free tier, <a href="https://datamarket.azure.com/dataset/bing/microsofttranslator">see other pricing tiers</a></li>
   <li><strong>V1 API:</strong> These keys you cannot get anymore, so you&#8217;ll need an existing one</li>
   <li><strong>V2 API:</strong> Get an API key by creating an application <a href="https://datamarket.azure.com/developer/applications">here</a> - not available yet</li>
+  <li>https://www.microsoft.com/en-us/translator/translatorapi.aspx</li>
 </ul>
 
-<h3 id="yandexhttpstechyandexcomtranslate-free-and-paid"><a href="https://tech.yandex.com/translate/">Yandex</a> (free and paid)</h3>
+<h3 id="yandex-free-and-paid">Yandex (free and paid)</h3>
 
 <ul>
   <li><strong>Limits:</strong> 10 million characters per month on free tier and 1 million characters per 24 hours, <a href="https://translate.yandex.com/developers/prices">see pricing</a></li>
   <li><strong>API key:</strong> Get an API key by signing up <a href="https://tech.yandex.com/keys/get/?service=trnsl">here</a></li>
+  <li>https://tech.yandex.com/translate/</li>
 </ul>
 
 <h2 id="configuration">Configuration</h2>
 
 <p>You can configure the settings in the <em>Babel.json</em> file under the <em>oxide/config</em> directory.</p>
 
-<p><code>javascript
+<p><code>
 {
   "API key (if required)": "",
   "Translation service": "google"
@@ -168,20 +171,20 @@
 
 <p>If your plugin requires this plugin and is written in C#, you can use the following at the top of your plugin:</p>
 
-<p><code>csharp
+<p><code>
 // Requires: Babel
 </code></p>
 
 <p>For C# plugins, you&#8217;ll need to get the plugin&#8217;s reference as such:</p>
 
-<p><code>csharp
+<p><code>
 [PluginReference]
 private Plugin Babel;
 </code></p>
 
 <p>Now that you have the plugin reference, you call the provided methods:</p>
 
-<p><code>csharp
+<p><code>
 Babel?.Call("Translate", "Hello world!", "en", "auto");
 </code></p>
 
@@ -189,7 +192,7 @@ Babel?.Call("Translate", "Hello world!", "en", "auto");
 
 <h2 id="api-methods">API Methods</h2>
 
-<p><code>csharp
+<p><code>
 Translate(string message, string to, string from = "auto", Action&lt;string&gt; callback = null)
 </code></p>
 
