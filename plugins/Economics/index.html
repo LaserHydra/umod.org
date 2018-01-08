@@ -107,7 +107,13 @@
   <li><a href="#permissions">Permissions</a></li>
   <li><a href="#commands">Commands</a></li>
   <li><a href="#configuration">Configuration</a></li>
+  <li><a href="#localization">Localization</a></li>
   <li><a href="#api-for-developers">API (for developers)</a></li>
+  <li><a href="#permissions-1">Permissions</a></li>
+  <li><a href="#commands-1">Commands</a></li>
+  <li><a href="#configuration-1">Configuration</a></li>
+  <li><a href="#localization-1">Localization</a></li>
+  <li><a href="#api-for-developers-1">API (for developers)</a></li>
   <li><a href="#credits">Credits</a></li>
 </ul>
     </div>
@@ -121,11 +127,8 @@
 <p>This plugin uses Oxide&#8217;s permission system. To assign a permission, use <code>oxide.grant user &lt;name or steam id&gt; &lt;permission&gt;</code>. To remove a permission, use <code>oxide.revoke user &lt;name or steam id&gt; &lt;permission&gt;</code>.</p>
 
 <ul>
-  <li><strong>economics.use</strong> <em>(allows player to use basic economic commands)</em> \
-<em><strong>Ex.</strong> oxide.grant user Wulf enonomics.use</em> \
-<em><strong>Ex.</strong> oxide.revoke user Wulf enonomics.use</em> \
-<em><strong>Ex.</strong> oxide.grant group default enonomics.use</em></li>
-  <li><strong>economics.admin</strong> <em>(allows player to use admin commands)</em></li>
+  <li><strong>economics.use</strong> &#8211; allows player to use basic economic commands</li>
+  <li><strong>economics.admin</strong> &#8211; allows player to use admin commands</li>
 </ul>
 
 <h2 id="commands">Commands</h2>
@@ -142,14 +145,60 @@
 
 <h2 id="configuration">Configuration</h2>
 
-<p>&#8220;Remove unused accounts (true/false)&#8221;: true, &#8211; On server start, players with the default balance are removed \
-&#8220;Start money amount (any number 1 or above)&#8221;: 1000 &#8211; Amount of money a player starts with \
-&#8220;Money transfer fee (any number 0.00 or above)&#8221;: 0.01 &#8211; Fee for money transfers (0.01 = 1%), 0.00 to disable</p>
+<p>You can configure the settings in the <code>Economics.json</code> file under the <code>oxide/config</code> directory.</p>
+
+<p>&#8220;Remove unused accounts (true/false)&#8221;: true &#8211; On server start, players with the default balance are removed</p>
+
+<p>&#8220;Start money amount (any number 1 or above)&#8221;: 1000 &#8211; Amount of money a player starts with</p>
+
+<p>&#8220;Money transfer fee (any number 0.00 or above)&#8221;: 0.01 &#8211; Fee for money transfers (0.01 = 1%), 0.00 to disable</p>
+
+<h2 id="localization">Localization</h2>
+
+<p>The default messages are in the <code>Economics.json</code> file under the <code>oxide/lang/en directory</code>. To add support for another language, create a new language folder (ex. de for German) if not already created, copy the default language file to the new folder, and then customize the messages.</p>
 
 <h2 id="api-for-developers">API (for developers)</h2>
 
-<p><code>
-double Balance(string playerId)
+<p><strong>Economics</strong> is a basic economics system that other plugins can make use of the provided API. On its own, this plugin only provides the features listed and has no shop.</p>
+
+<h2 id="permissions-1">Permissions</h2>
+
+<p>This plugin uses Oxide&#8217;s permission system. To assign a permission, use <code>oxide.grant user &lt;name or steam id&gt; &lt;permission&gt;</code>. To remove a permission, use <code>oxide.revoke user &lt;name or steam id&gt; &lt;permission&gt;</code>.</p>
+
+<ul>
+  <li><strong>economics.use</strong> &#8211; allows player to use basic economic commands</li>
+  <li><strong>economics.admin</strong> &#8211; allows player to use admin commands</li>
+</ul>
+
+<h2 id="commands-1">Commands</h2>
+
+<ul>
+  <li><code>balance</code> &#8211; check your balance</li>
+  <li><code>balance &lt;name&gt;</code> &#8211; check [name] player balance</li>
+  <li><code>deposit &lt;name&gt; &lt;amount&gt;</code> &#8211; deposit [amount] to [name] player</li>
+  <li><code>setmoney &lt;name&gt; &lt;amount&gt;</code> &#8211; set balance to [amount] for [name] player</li>
+  <li><code>transfer &lt;name&gt; &lt;amount&gt;</code> &#8211; transfer [amount] to [name] player</li>
+  <li><code>withdraw &lt;name&gt; &lt;amount&gt;</code> &#8211; withdraw [amount] from [name] player</li>
+  <li><code>ecowipe</code> &#8211; wipe all saved Economics data, including balances</li>
+</ul>
+
+<h2 id="configuration-1">Configuration</h2>
+
+<p>You can configure the settings in the <code>Economics.json</code> file under the <code>oxide/config</code> directory.</p>
+
+<p>&#8220;Remove unused accounts (true/false)&#8221;: true &#8211; On server start, players with the default balance are removed</p>
+
+<p>&#8220;Start money amount (any number 1 or above)&#8221;: 1000 &#8211; Amount of money a player starts with</p>
+
+<p>&#8220;Money transfer fee (any number 0.00 or above)&#8221;: 0.01 &#8211; Fee for money transfers (0.01 = 1%), 0.00 to disable</p>
+
+<h2 id="localization-1">Localization</h2>
+
+<p>The default messages are in the <code>Economics.json</code> file under the <code>oxide/lang/en directory</code>. To add support for another language, create a new language folder (ex. de for German) if not already created, copy the default language file to the new folder, and then customize the messages.</p>
+
+<h2 id="api-for-developers-1">API (for developers)</h2>
+
+<pre><code>double Balance(string playerId)
 double Balance(ulong playerId)
 void Deposit(string playerId, double amount)
 void Deposit(ulong playerId, double amount)
@@ -159,7 +208,7 @@ bool Transfer(string playerId, string targetId, double amount)
 bool Transfer(ulong playerId, string targetId, double amount)
 bool Withdraw(string playerId, double amount)
 bool Withdraw(ulong playerId, double amount)
-</code></p>
+</code></pre>
 
 <h2 id="credits">Credits</h2>
 
