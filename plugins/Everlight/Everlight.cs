@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Oxide.Plugins
 {
-    [Info("Everlight", "Wulf/lukespragg", "3.0.1", ResourceId = 2170)]
+    [Info("Everlight", "Wulf/lukespragg", "3.1.0", ResourceId = 2170)]
     [Description("Allows infinite light from configured objects by not consuming fuel")]
     public class Everlight : CovalencePlugin
     {
@@ -18,8 +18,20 @@ namespace Oxide.Plugins
             public bool Campfires;
 
             [DefaultValue(false)]
+            [JsonProperty(PropertyName = "Fire pits (true/false)", DefaultValueHandling = DefaultValueHandling.Populate)]
+            public bool FirePits;
+
+            [DefaultValue(false)]
+            [JsonProperty(PropertyName = "Fireplaces (true/false)", DefaultValueHandling = DefaultValueHandling.Populate)]
+            public bool Fireplaces;
+
+            [DefaultValue(false)]
             [JsonProperty(PropertyName = "Furnaces (true/false)", DefaultValueHandling = DefaultValueHandling.Populate)]
             public bool Furnaces;
+
+            [DefaultValue(false)]
+            [JsonProperty(PropertyName = "Grills (true/false)", DefaultValueHandling = DefaultValueHandling.Populate)]
+            public bool Grills;
 
             [DefaultValue(true)]
             [JsonProperty(PropertyName = "Lanterns (true/false)", DefaultValueHandling = DefaultValueHandling.Populate)]
@@ -28,6 +40,11 @@ namespace Oxide.Plugins
             [DefaultValue(false)]
             [JsonProperty(PropertyName = "Refineries (true/false)", DefaultValueHandling = DefaultValueHandling.Populate)]
             public bool Refineries;
+
+            [DefaultValue(false)]
+            [JsonProperty(PropertyName = "Search lights (true/false)", DefaultValueHandling = DefaultValueHandling.Populate)]
+            public bool SearchLights;
+
         }
 
         protected override void LoadConfig()
@@ -36,7 +53,7 @@ namespace Oxide.Plugins
             try
             {
                 config = Config.ReadObject<Configuration>();
-                if (config == null) LoadDefaultConfig();
+                if (config?.Lanterns == null) LoadDefaultConfig();
             }
             catch
             {
@@ -58,9 +75,12 @@ namespace Oxide.Plugins
         {
             if (oven?.fuelType == null) return null;
 
-            if (oven.panelName == "campfire" && !config.Campfires) return null;
+            if (oven.panelName.Contains("lantern") && !config.Lanterns) return null;
+            else if (oven.panelName.Contains("campfire") || !config.Campfires) return null;
+            else if (oven.panelName.Contains("fire_pit") || !config.FirePits) return null;
             else if (oven.panelName.Contains("furnace") && !config.Furnaces) return null;
-            else if (oven.panelName == "lantern" && !config.Lanterns) return null;
+            else if (oven.panelName.Contains("fireplace") && !config.Fireplaces) return null;
+            else if (oven.panelName.Contains("bbq") && !config.Grills) return null;
             else if (oven.panelName.Contains("refinery") && !config.Refineries) return null;
 
             return ItemManager.CreateByItemID(oven.fuelType.itemid, 1);
