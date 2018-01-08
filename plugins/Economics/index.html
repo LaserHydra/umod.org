@@ -121,9 +121,9 @@
 <p>This plugin uses Oxide&#8217;s permission system. To assign a permission, use <code>oxide.grant user &lt;name or steam id&gt; &lt;permission&gt;</code>. To remove a permission, use <code>oxide.revoke user &lt;name or steam id&gt; &lt;permission&gt;</code>.</p>
 
 <ul>
-  <li><strong>economics.use</strong> <em>(allows player to use basic economic commands)</em>
-<em><strong>Ex.</strong> oxide.grant user Wulf enonomics.use</em>
-<em><strong>Ex.</strong> oxide.revoke user Wulf enonomics.use</em>
+  <li><strong>economics.use</strong> <em>(allows player to use basic economic commands)</em> \
+<em><strong>Ex.</strong> oxide.grant user Wulf enonomics.use</em> \
+<em><strong>Ex.</strong> oxide.revoke user Wulf enonomics.use</em> \
 <em><strong>Ex.</strong> oxide.grant group default enonomics.use</em></li>
   <li><strong>economics.admin</strong> <em>(allows player to use admin commands)</em></li>
 </ul>
@@ -132,23 +132,23 @@
 
 <ul>
   <li>balance - <em>check your balance</em></li>
-  <li>balance <name> - _check [name] player balance_</name></li>
-  <li>deposit <name> <amount> - _deposit [amount] to [name] player_</amount></name></li>
-  <li>setmoney <name> <amount> - _set [amount] balance for [name] player_</amount></name></li>
-  <li>transfer <name> <amount> - _transfer [amount] to [name] player_</amount></name></li>
-  <li>withdraw <name> <amount> -_withdraw [amount] from [name] player_</amount></name></li>
+  <li>balance <name> - *check [name] player balance*</name></li>
+  <li>deposit <name> <amount> - *deposit [amount] to [name] player*</amount></name></li>
+  <li>setmoney <name> <amount> - *set [amount] balance for [name] player*</amount></name></li>
+  <li>transfer <name> <amount> - *transfer [amount] to [name] player*</amount></name></li>
+  <li>withdraw <name> <amount> - *withdraw [amount] from [name] player*</amount></name></li>
   <li>ecowipe - <em>wipes all saved Economics data</em></li>
 </ul>
 
 <h2 id="configuration">Configuration</h2>
 
-<p>&#8220;Remove unused accounts (true/false)&#8221;: true, &#8211; On server start, players with the default balance are removed
-&#8220;Start money amount (any number 1 or above)&#8221;: 1000 &#8211; Amount of money a player starts with
-&#8220;Money transfer fee (any number 0.00 or above)&#8221;: 0.01 &#8211; Fee for transferring money (0.01 = 1%), 0.00 to disable</p>
+<p>&#8220;Remove unused accounts (true/false)&#8221;: true, &#8211; On server start, players with the default balance are removed \
+&#8220;Start money amount (any number 1 or above)&#8221;: 1000 &#8211; Amount of money a player starts with \
+&#8220;Money transfer fee (any number 0.00 or above)&#8221;: 0.01 &#8211; Fee for money transfers (0.01 = 1%), 0.00 to disable</p>
 
 <h2 id="api-for-developers">API (for developers)</h2>
 
-<p><code>csharp
+<p><code>
 double Balance(string playerId)
 double Balance(ulong playerId)
 void Deposit(string playerId, double amount)
