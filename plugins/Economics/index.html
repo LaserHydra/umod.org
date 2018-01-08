@@ -98,9 +98,81 @@
     <div class="col-md-9">
         <div class="main-content">
             
-                <p>
-                    This plugin has no additional information about it. Please let the author know or feel free to contribute a <a href="https://github.com/umods/Economics/new/master?readme=1">README.md</a> via GitHub or <a href="https://github.com/umods/Economics/issues/new?title=Plugin+page+is+lacking+additional+information">open an issue</a> to request more information.
-                </p>
+                
+
+
+
+    <div class="table-of-contents">
+        <ul>
+  <li><a href="#permissions">Permissions</a></li>
+  <li><a href="#commands">Commands</a></li>
+  <li><a href="#configuration">Configuration</a></li>
+  <li><a href="#api-for-developers">API (for developers)</a></li>
+  <li><a href="#credits">Credits</a></li>
+</ul>
+    </div>
+
+
+
+                <p><strong>Economics</strong> is a basic economics system that other plugins can make use of the provided API. On its own, this plugin only provides the features listed and has no shop.</p>
+
+<h2 id="permissions">Permissions</h2>
+
+<p>This plugin uses Oxide&#8217;s permission system. To assign a permission, use <code>oxide.grant user &lt;name or steam id&gt; &lt;permission&gt;</code>. To remove a permission, use <code>oxide.revoke user &lt;name or steam id&gt; &lt;permission&gt;</code>.</p>
+
+<ul>
+  <li><strong>economics.use</strong> <em>(allows player to use basic economic commands)</em>
+<em><strong>Ex.</strong> oxide.grant user Wulf enonomics.use</em>
+<em><strong>Ex.</strong> oxide.revoke user Wulf enonomics.use</em>
+<em><strong>Ex.</strong> oxide.grant group default enonomics.use</em></li>
+  <li><strong>economics.admin</strong> <em>(allows player to use admin commands)</em></li>
+</ul>
+
+<h2 id="commands">Commands</h2>
+
+<ul>
+  <li>balance - <em>check your balance</em></li>
+  <li>balance <name> - _check [name] player balance_</name></li>
+  <li>deposit <name> <amount> - _deposit [amount] to [name] player_</amount></name></li>
+  <li>setmoney <name> <amount> - _set [amount] balance for [name] player_</amount></name></li>
+  <li>transfer <name> <amount> - _transfer [amount] to [name] player_</amount></name></li>
+  <li>withdraw <name> <amount> -_withdraw [amount] from [name] player_</amount></name></li>
+  <li>ecowipe - <em>wipes all saved Economics data</em></li>
+</ul>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>&#8220;Remove unused accounts (true/false)&#8221;: true, &#8211; On server start, players with the default balance are removed
+&#8220;Start money amount (any number 1 or above)&#8221;: 1000 &#8211; Amount of money a player starts with
+&#8220;Money transfer fee (any number 0.00 or above)&#8221;: 0.01 &#8211; Fee for transferring money (0.01 = 1%), 0.00 to disable</p>
+
+<h2 id="api-for-developers">API (for developers)</h2>
+
+<p><code>csharp
+double Balance(string playerId)
+double Balance(ulong playerId)
+void Deposit(string playerId, double amount)
+void Deposit(ulong playerId, double amount)
+void SetMoney(string playerId, double amount)
+void SetMoney(ulong playerId, double amount)
+bool Transfer(string playerId, string targetId, double amount)
+bool Transfer(ulong playerId, string targetId, double amount)
+bool Withdraw(string playerId, double amount)
+bool Withdraw(ulong playerId, double amount)
+</code></p>
+
+<h2 id="credits">Credits</h2>
+
+<ul>
+  <li><strong>Nogrod</strong>, for the original C# version of this plugin</li>
+  <li><strong>Bombardir</strong>, for the original Lua version of this plugin</li>
+</ul>
+
+
+                <!-- TODO: Inject anchors for headings
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#economics">
+                    <i class="fa fa-link"></i>
+                </a>-->
             
         </div>
     </div>
