@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Universal modding platform and plugin API for Unity, .NET/C#, and soon C++ games" />
 
-    <title>uMod - Economics</title>
-    <link rel="canonical" href="https://umod.org/plugins/Economics/plugin/"/>
+    <title>uMod - Better Chat</title>
+    <link rel="canonical" href="https://umod.org/plugins/BetterChat/plugin/"/>
     <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="uMod" />
 
     <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico" />
@@ -25,10 +25,10 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/favicons/apple-touch-icon-152x152.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/favicons/apple-touch-icon-180x180.png" />-->
 
-    <meta property="og:title" content="uMod - Economics" />
-    <meta property="og:description" content="Basic economics system and economy API" />
+    <meta property="og:title" content="uMod - Better Chat" />
+    <meta property="og:description" content="" />
     <meta property="og:image" content="/assets/images/favicons/favicon-96x96.png" />
-    <meta property="og:url" content="https://umod.org/plugins/Economics/plugin/" />
+    <meta property="og:url" content="https://umod.org/plugins/BetterChat/plugin/" />
     <meta property="og:site_name" content="uMod" />
 
     <meta name="google-site-verification" content="Q2WUZqluExDuYXsQ8Lq5D1zVGyCL3v3XFclfUQOYLT8" />
@@ -83,8 +83,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-info page-info-simple">
-                        <h1 class="page-title">Economics</h1>
-                        <h2 class="page-description">Basic economics system and economy API</h2>
+                        <h1 class="page-title">Better Chat</h1>
+                        <h2 class="page-description"></h2>
                     </div>
                 </div>
             </div>
@@ -98,86 +98,9 @@
     <div class="col-md-9">
         <div class="main-content">
             
-                
-
-
-
-    <div class="table-of-contents">
-        <ul>
-  <li><a href="#permissions">Permissions</a></li>
-  <li><a href="#commands">Commands</a></li>
-  <li><a href="#configuration">Configuration</a></li>
-  <li><a href="#localization">Localization</a></li>
-  <li><a href="#api-for-developers">API (for developers)</a></li>
-  <li><a href="#credits">Credits</a></li>
-</ul>
-    </div>
-
-
-
-                <p><strong>Economics</strong> is a basic economics system that other plugins can make use of the provided API. On its own, this plugin only provides the features listed and has no shop.</p>
-
-<h2 id="permissions">Permissions</h2>
-
-<p>This plugin uses Oxide&#8217;s permission system. To assign a permission, use <code>oxide.grant user &lt;name or steam id&gt; &lt;permission&gt;</code>. To remove a permission, use <code>oxide.revoke user &lt;name or steam id&gt; &lt;permission&gt;</code>.</p>
-
-<ul>
-  <li><strong>economics.use</strong> &#8211; allows player to use basic economic commands</li>
-  <li><strong>economics.admin</strong> &#8211; allows player to use admin commands</li>
-</ul>
-
-<h2 id="commands">Commands</h2>
-
-<ul>
-  <li><code>balance</code> &#8211; check your balance</li>
-  <li><code>balance &lt;name&gt;</code> &#8211; check [name] player balance</li>
-  <li><code>deposit &lt;name&gt; &lt;amount&gt;</code> &#8211; deposit [amount] to [name] player</li>
-  <li><code>setmoney &lt;name&gt; &lt;amount&gt;</code> &#8211; set balance to [amount] for [name] player</li>
-  <li><code>transfer &lt;name&gt; &lt;amount&gt;</code> &#8211; transfer [amount] to [name] player</li>
-  <li><code>withdraw &lt;name&gt; &lt;amount&gt;</code> &#8211; withdraw [amount] from [name] player</li>
-  <li><code>ecowipe</code> &#8211; wipe all saved Economics data, including balances</li>
-</ul>
-
-<h2 id="configuration">Configuration</h2>
-
-<p>You can configure the settings in the <code>Economics.json</code> file under the <code>oxide/config</code> directory.</p>
-
-<p>&#8220;Remove unused accounts (true/false)&#8221;: true &#8211; On server start, players with the default balance are removed</p>
-
-<p>&#8220;Start money amount (any number 1 or above)&#8221;: 1000 &#8211; Amount of money a player starts with</p>
-
-<p>&#8220;Money transfer fee (any number 0.00 or above)&#8221;: 0.01 &#8211; Fee for money transfers (0.01 = 1%), 0.00 to disable</p>
-
-<h2 id="localization">Localization</h2>
-
-<p>The default messages are in the <code>Economics.json</code> file under the <code>oxide/lang/en directory</code>. To add support for another language, create a new language folder (ex. de for German) if not already created, copy the default language file to the new folder, and then customize the messages.</p>
-
-<h2 id="api-for-developers">API (for developers)</h2>
-
-<pre><code>double Balance(string playerId)
-double Balance(ulong playerId)
-void Deposit(string playerId, double amount)
-void Deposit(ulong playerId, double amount)
-void SetMoney(string playerId, double amount)
-void SetMoney(ulong playerId, double amount)
-bool Transfer(string playerId, string targetId, double amount)
-bool Transfer(ulong playerId, string targetId, double amount)
-bool Withdraw(string playerId, double amount)
-bool Withdraw(ulong playerId, double amount)
-</code></pre>
-
-<h2 id="credits">Credits</h2>
-
-<ul>
-  <li><strong>Nogrod</strong>, for the original C# version of this plugin</li>
-  <li><strong>Bombardir</strong>, for the original Lua version of this plugin</li>
-</ul>
-
-
-                <!-- TODO: Inject anchors for headings
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#economics">
-                    <i class="fa fa-link"></i>
-                </a>-->
+                <p>
+                    This plugin has no additional information about it. Please let the author know or feel free to contribute a <a href="https://github.com/umods/BetterChat/new/master?readme=1">README.md</a> via GitHub or <a href="https://github.com/umods/BetterChat/issues/new?title=Plugin+page+is+lacking+additional+information">open an issue</a> to request more information.
+                </p>
             
         </div>
     </div>
@@ -185,14 +108,14 @@ bool Withdraw(ulong playerId, double amount)
         <div class="sidebar js-sidebar-fixed">
             <div class="widget">
                 <div class="box plugin-icon">
-                    <object data="https://raw.githubusercontent.com/umods/Economics/master/icon.png" class="image" width="262" height="262">
-                        <img src="http://www.gravatar.com/avatar/109738422?s=253&d=identicon&r=PG" class="grayscale" alt="Economics" />
+                    <object data="https://raw.githubusercontent.com/umods/BetterChat/master/icon.png" class="image" width="262" height="262">
+                        <img src="http://www.gravatar.com/avatar/116730342?s=253&d=identicon&r=PG" class="grayscale" alt="BetterChat" />
                     </object>
                 </div>
             </div>
             <div class="widget">
-                <a href="Economics.cs" class="button helper mb30 large full blue" download="Economics.cs">Download Now</a>
-                <a href="https://github.com/umods/Economics" class="button helper mb30 large full green">Contribute at GitHub</a>
+                <a href="BetterChat.cs" class="button helper mb30 large full blue" download="BetterChat.cs">Download Now</a>
+                <a href="https://github.com/umods/BetterChat" class="button helper mb30 large full green">Contribute at GitHub</a>
             </div>
             <div class="widget">
                 <h3 class="widget-title">Contributors</h3>
