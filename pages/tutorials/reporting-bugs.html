@@ -1,36 +1,42 @@
 ---
 category:
 title: Reporting Bugs & Issues
-description: "Bugs can vary in scope and complexity. To ensure that they are quickly resolved with minimal confusion, please consider the following guidelines."
+description: "Ensure bugs are resolved quickly and with minimal confusion by considering the following guidelines."
 layout: docs
 permalink: /tutorials/reporting-bugs
 ---
 
 <div class="row">
     <div class="col-md-12">
-        <div class="category-info helper pt0" id="{{ page.title | slugify }}">
-            <h3 class="category-title">
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#{{ page.title | slugify }}">
-                    <i class="fa fa-link"></i>
-                </a>
-                {{ page.title }}
-            </h3>
-            <p class="category-content">{{ page.description }}</p>
-            <hr/>
+        <div class="table-of-contents">
+            <ol>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#bug-lessions">Getting started</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#writing-clear-summary">Writing a clear summary</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#writing-precise-steps">Writing precise steps</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#bug-report-items">What should you include in a bug report?</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#supported-environments">Supported Environments</a>
+                </li>
+            </ol>
         </div>
-    </div>
-    <div class="col-md-6">
-        <ul class="steps">
+        
+        <ul class="steps" id="bug-lessons">
             <li class="step">
                 <span class="step-number">1</span>
                 <h4 class="step-title">Figure out the steps to reproduce the bug</h4>
-                <p class="step-content">
-                  <ul>
-                    <li>If you have precise steps to reproduce you are on your way to reporting a useful bug report.</li>
-                    <li>If you can reproduce occasionally, but not after following specific steps, you must provide as much additional information as possible.</li>
-                    <li>If you can't reproduce the problem, <em>there is probably no use in reporting it</em>, unless you have unique information about its occurrence.</li>
-                  </ul>
-                </p>
+                <ul class="step-content">
+                  <li>If you have precise steps to reproduce you are on your way to reporting a useful bug report.</li>
+                  <li>If you can reproduce occasionally, but not after following specific steps, you must provide as much additional information as possible.</li>
+                  <li>If you can't reproduce the problem, <em>there is probably no use in reporting it</em>, unless you have unique information about its occurrence.</li>
+                </ul>
             </li>
             <li class="step">
                 <span class="step-number">2</span>
@@ -40,24 +46,20 @@ permalink: /tutorials/reporting-bugs
             <li class="step">
                 <span class="step-number">3</span>
                 <h4 class="step-title">When reporting a bug, first check if other users report the same bug</h4>
-                <p class="step-content">
-                  <ul>
-                    <li>If the bug only happens in your existing setup, try to figure out what settings, extensions, or files are needed to reproduce the bug.</li>
-                    <li>If the bug seems egregious (obviously affecting a lot of users), there is probably something unusual happening, perhaps related to a recent game update.</li>
-                    <li>You have a much better chance of figuring it out than a developer without access to your system</li>
-                    <li>Search the <a href="{{ site.forums }}" target="_blank">uMod forums</a> or on <a href="https://google.com" target="_blank">Google</a></li>
-                  </ul>
-                </p>
+                <ul class="step-content">
+                  <li>If the bug only happens in your existing setup, try to figure out what settings, extensions, or files are needed to reproduce the bug.</li>
+                  <li>If the bug seems egregious (obviously affecting a lot of users), there is probably something unusual happening, perhaps related to a recent game update.</li>
+                  <li>You have a much better chance of figuring it out than a developer without access to your system</li>
+                  <li>Search the <a href="{{ site.forums }}" target="_blank">uMod forums</a> or on <a href="https://google.com" target="_blank">Google</a></li>
+                </ul>
             </li>
             <li class="step">
                 <span class="step-number">4</span>
                 <h4 class="step-title">Seek help from the community or plugin authors</h4>
-                <p class="step-content">
-                  <ul>
-                    <li>To contact the community, please submit your issue by creating a thread in the appropriate forum for the game you are running.</li>
-                    <li>If the bug relates to a specific plugin, please submit the issue to the plugin author through the support thread for that individual plugin.</li>
-                  </ul>
-                </p>
+                <ul class="step-content">
+                  <li>To contact the community, please submit your issue by creating a thread in the appropriate forum for the game you are running.</li>
+                  <li>If the bug relates to a specific plugin, please submit the issue to the plugin author through the support thread for that individual plugin.</li>
+                </ul>
             </li>
         </ul>
         
@@ -69,19 +71,19 @@ permalink: /tutorials/reporting-bugs
             </a>
           </h3>
         </div>
-        <p class="mb40 helper">
+        <p class="helper">
           How would you describe the bug using approximately 10 words or less? This is the first part of your bug report the developer will see.
-          <br/>
+          <br/><br/>
           A good summary should quickly and uniquely identify a bug report. It should explain the problem, not your suggested solution
-          <ul>
-            <li><span class="text-success">Good</span>: "Running this command causes the following error message: (with message)"</li>
-            <li><span class="text-danger">Bad</span>: "It don't work"</li>
-          </ul>
-          <ul>
-            <li><span class="text-success">Good</span>: "A user was kicked after doing the following action: (with description)"</li>
-            <li><span class="text-danger">Bad</span>: "Your plugin kicked my players"</li>
-          </ul>
         </p>
+        <ul>
+          <li><span style="color:lime">Good</span>: "Running this command causes the following error message: (with message)"</li>
+          <li><span style="color:red">Bad</span>: "It don't work"</li>
+        </ul>
+        <ul>
+          <li><span style="color:lime">Good</span>: "A user was kicked after doing the following action: (with description)"</li>
+          <li><span style="color:red">Bad</span>: "Your plugin kicked my players"</li>
+        </ul>
         
         <div class="category-info " id="writing-precise-steps">
           <h3 class="category-title">
@@ -91,7 +93,7 @@ permalink: /tutorials/reporting-bugs
             </a>
           </h3>
         </div>
-        <p class="mb40 helper">
+        <p class="helper">
           How can a developer reproduce the bug on their own system?
           <br/><br/>
           Steps to reproduce are the most important part of any bug report. If a developer is able to reproduce the bug, the bug will very likely be fixed.
@@ -107,23 +109,23 @@ permalink: /tutorials/reporting-bugs
             </a>
           </h3>
         </div>
-        <p class="mb40 helper">
+        <p class="helper">
           <ol>
             <li>Indicate whether you can reproduce the bug <em>at will</em>, <em>occasionally</em>, or <em>not at all</em>.</li>
             <li>Describe your method of interaction in addition to your intent with each step</li>
             <li>After your steps, precisely describe the observed (actual) result and the expected result. Clearly separate facts (observations) from speculations.</li>
           </ol>
           <ul>
-            <li><span class="text-success">Good</span>: "I can reproduce by doing exactly the following: (explanation)"</li>
-            <li><span class="text-danger">Bad</span>: "Your plugin is broken"</li>
+            <li><span style="color:lime">Good</span>: "I can reproduce by doing exactly the following: (explanation)"</li>
+            <li><span style="color:red">Bad</span>: "Your plugin is broken"</li>
           </ul>
           <ul>
-            <li><span class="text-success">Good</span>: "1. Started my server & login. 2. Run the following command /help. 3. Help Text does not appear. (with configuration)"</li>
-            <li><span class="text-danger">Bad</span>: "Help doesn't do nothing"</li>
+            <li><span style="color:lime">Good</span>: "1. Started my server & login. 2. Run the following command /help. 3. Help Text does not appear. (with configuration)"</li>
+            <li><span style="color:red">Bad</span>: "Help doesn't do nothing"</li>
           </ul>
           <ul>
-            <li><span class="text-success">Good</span>: "<em>Expected result</em>: The item moved into my inventory. <em>Actual result</em>: The item dropped to the ground"</li>
-            <li><span class="text-danger">Bad</span>: "Items not working"</li>
+            <li><span style="color:lime">Good</span>: "<em>Expected result</em>: The item moved into my inventory. <em>Actual result</em>: The item dropped to the ground"</li>
+            <li><span style="color:red">Bad</span>: "Items not working"</li>
           </ul>
         </p>
         
@@ -135,7 +137,7 @@ permalink: /tutorials/reporting-bugs
             </a>
           </h3>
         </div>
-        <p class="mb40 helper">
+        <p class="helper">
           uMod works on a wide variety of games and platforms. Please include the relevant platforms and games in your report.
           <ul>
             <li>Game Version (run "version" or comparable command)</li>
