@@ -1,0 +1,159 @@
+---
+category:
+title: Setting up a Rust server on Windows
+description: "Get your Rust server online and modded with uMod in under 5 minutes."
+layout: docs
+permalink: /tutorials/rust/server-setup-windows
+---
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-of-contents">
+            <ol>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#download-steamcmd">Downloading SteamCMD</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#download-dedicated">Downloading the dedicated server</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#basic-install-update-script">Basic install/update script</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#adding-umod">Adding uMod to the server</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#server-start">Starting the server</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#server-join">Joining the server</a>
+                </li>
+            </ol>
+        </div>
+        <div class="category-info " id="download-steamcmd">
+          <h3 class="category-title">
+            Downloading Steam CMD
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#download-steamcmd">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>
+        <p class="helper">
+            SteamCMD is a command-line client for Steam that can install and update the Rust dedicated server files.
+            <br/>
+            <a href="http://media.steampowered.com/installer/steamcmd.zip" class="btn btn-primary"><i class="fa fa-download"></i> Download SteamCMD</a>
+            <br/>
+            Extract and run SteamCMD.  The first time SteamCMD runs, it will update itself to the latest version.  Allow SteamCMD to update and then proceed to the next step.
+        </p>
+        
+        SCREENSHOT 1 PLACEHOLDER
+        
+        <div class="category-info " id="download-dedicated">
+          <h3 class="category-title">
+            Downloading the dedicated server
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#download-dedicated">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>
+        <div class="helper">
+            After opening SteamCMD, authentication is required using either valid Steam credentials or an anonymous account.  Enter the following to begin anonymous authentication.
+            
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">login anonymous</code></pre>
+            </div>
+        
+            Next, choose the directory where your Rust dedicated server installation will be placed by entering the following
+            
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">force_install_dir <path></code></pre>
+            </div>
+            
+            Finally, begin the Rust dedicated server installation by entering the following
+            
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">app_update 258550</code></pre>
+            </div>
+            
+            Please be patient as the Rust dedicated server installation may take a few minutes to download depending on your internet connection speed.
+        </div>
+        
+        SCREENSHOT 2 PLACEHOLDER
+        
+        <div class="category-info " id="basic-install-update-script">
+          <h3 class="category-title">
+            Basic install/update script
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#basic-install-update-script">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>
+        <p class="helper">
+            The previous steps may be automated by created a batch (.bat) file which runs the following script
+        </p>
+        <div class="code-highlight " data-label="">
+            <span class="js-copy-to-clipboard copy-code">copy</span>
+            <pre><code class="language-markup">@steamcmd +login anonymous +app_update 258550 validate +quit
+pause</code></pre>
+        </div>
+        
+        <div class="category-info " id="adding-umod">
+          <h3 class="category-title">
+            Adding uMod to the server
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#adding-umod">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>
+        <p class="helper">
+            Download the latest uMod build that is compatible with your server version first. 
+            Extract uMod to the folder where RustDedicated.exe is located and overwrite when prompted. 
+            This will add the required uMod files and the modified Rust files which will load uMod.
+        </p>
+        
+        <div class="category-info " id="server-start">
+          <h3 class="category-title">
+            Starting the server
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#server-start">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>
+        <p class="helper">
+            Create a batch (.bat) file in your Rust dedicated server folder and enter the following script
+        </p>
+        <div class="code-highlight " data-label="">
+            <span class="js-copy-to-clipboard copy-code">copy</span>
+            <pre><code class="language-markup">@echo off
+RustDedicated.exe -batchmode +server.port 28015 +rcon.port 28016 +rcon.ip 0.0.0.0 +rcon.password "changeme"</code></pre>
+        </div>
+        <p class="helper">
+            Launch the batch file
+        </p>
+        
+        SCREENSHOT 3 PLACEHOLDER
+        
+        <div class="category-info " id="server-join">
+          <h3 class="category-title">
+            Joining the server
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#server-join">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>
+        <p class="helper">
+            Launch the Rust game client and open the in-game console by pressing the F1 key.  Then enter the following and press the Enter key
+        </p>
+        <div class="code-highlight " data-label="">
+            <span class="js-copy-to-clipboard copy-code">copy</span>
+            <pre><code class="language-markup">connect 127.0.0.1:28015</code></pre>
+        </div>
+        <p class="helper">
+            To make the server accessible to other players, the external IP address must be obtained and all necessary port forwarding rules must be configured on the firewall(s).
+        </p>
+        
+    </div>
+</div>
