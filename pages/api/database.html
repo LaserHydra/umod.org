@@ -36,12 +36,31 @@ menu-weight: 31
                 {{ topic.title }}
             </h4>
             <p class="category-content">{{ topic.summary }}</p>
-            <div class="code-highlight" data-label="">
-                <span class="js-copy-to-clipboard copy-code">copy</span>
-                <pre><code class="language-csharp js-code ghostIn">
+            <div class="tabs js-tabs code-highlight-tabs">
+                <h4 class="tab-title">
+                    MySql
+                </h4>
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
 {% assign filename = topic.title | slugify %}
-{% include snippets/database-{{ filename }}.html %}
-                </code></pre>
+{% include snippets/database/mysql/{{ filename }}.html %}
+                        </code></pre>
+                    </div>
+                </div>
+                <h4 class="tab-title">
+                    SQLite
+                </h4>
+                <div class="tab-content">
+                    <div class="code-highlight" data-label="">
+                        <span class="js-copy-to-clipboard copy-code">copy</span>
+                        <pre><code class="language-csharp js-code ghostIn">
+{% assign filename = topic.title | slugify %}
+{% include snippets/database/sqlite/{{ filename }}.html %}
+                        </code></pre>
+                    </div>
+                </div>
             </div>
         {% endfor %}
     </div>
@@ -116,13 +135,13 @@ arg[1] = ""</code></pre>
                 <br/>
                 There are more possible attack vectors than this. You should always protect yourself against SQL injections when user input is involved.
             </div>
-            <h4 class="category-description">
+            <h4 class="category-title">
                 <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#preventing-sql-injections">
                     <i class="fa fa-link"></i>
                 </a>
                 Preventing SQL injections
             </h4>
-            <p class="category-content">
+            <div class="category-content">
                 There are effectively two different types of mechanisms in uMod that help with preventing SQL injections. 
                 <br/>
                 The following applies to both the SQLite and the MySQL extension, the only difference being that MySQL is replaced with SQLite.
@@ -152,10 +171,19 @@ arg[1] = ""</code></pre>
                 <br/>
                 This parameterized query protects the database from the full spectrum of SQL injections.
                 <br/>
-                The actual C# syntax is very similar, just that you may use <pre><code class="language-markup">new Sql(query, args)</code></pre> instead of <pre><code class="language-markup">mysql.NewSql().Append(query, args)</code></pre>
-                <br/>
+                The actual C# syntax is very similar, just that you may use 
+                <div class="code-highlight " data-label="">
+                    <span class="js-copy-to-clipboard copy-code">copy</span>
+                    <pre><code class="language-markup">new Sql(query, args)</code></pre> 
+                </div>
+                instead of 
+                <div class="code-highlight " data-label="">
+                    <span class="js-copy-to-clipboard copy-code">copy</span>
+                    <pre><code class="language-markup">mysql.NewSql().Append(query, args)</code></pre>
+                </div>
+                
                 To sum it up, use parameterized queries whenever possible, even when input isn't derived from user input, as you might change that in the future and then forget that this kind of input isn't protected against SQL injections.
-            </p>
+            </div>
         </div>
     </div>
 </div>
