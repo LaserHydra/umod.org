@@ -1,5 +1,5 @@
 var exampleId = 2;
-var sqlQuery = "UPDATE example_table SET `field1` = @0, `field2` = @1 WHERE `id` = @3;";
+var sqlQuery = "UPDATE example_table SET `field1` = @0, `field2` = @1 WHERE `id` = @2;";
 var updateCommand = Oxide.Core.Database.Sql.Builder.Append(sqlQuery, "field1 value", "field2 value", exampleId);
 
 sqlLibrary.Update(updateCommand, sqlConnection, rowsAffected =>
