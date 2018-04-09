@@ -42,8 +42,6 @@ topics:
     summary: ""
   - title: "Register Permission"
     summary: ""
-  - title: "Permission Exists"
-    summary: ""
   - title: "Grant User Permission"
     summary: ""
   - title: "Revoke User Permission"
