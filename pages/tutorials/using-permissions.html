@@ -17,16 +17,16 @@ permalink: /tutorials/using-permissions
                     <a href="#" class="js-scroll-to" data-target="#permissions">Permissions</a>
                     <ol>
                         <li>
-                            <a href="#" class="js-scroll-to" data-target="#grant-user-permission">Grant a permission to an individual user</a>
+                            <a href="#" class="js-scroll-to" data-target="#grant-player-permission">Grant a permission to an individual player</a>
                         </li>
                         <li>
-                            <a href="#" class="js-scroll-to" data-target="#revoke-user-permission">Revoke a permission from an individual user</a>
+                            <a href="#" class="js-scroll-to" data-target="#revoke-player-permission">Revoke a permission from an individual player</a>
                         </li>
                         <li>
-                            <a href="#" class="js-scroll-to" data-target="#show-user-permissions">Showing a user's permissions</a>
+                            <a href="#" class="js-scroll-to" data-target="#show-player-permissions">Showing a player's permissions</a>
                         </li>
                         <li>
-                            <a href="#" class="js-scroll-to" data-target="#show-permission-owners">Showing which user or group has a permission</a>
+                            <a href="#" class="js-scroll-to" data-target="#show-permission-owners">Showing which player or group has a permission</a>
                         </li>
                     </ol>
                 </li>
@@ -40,10 +40,10 @@ permalink: /tutorials/using-permissions
                             <a href="#" class="js-scroll-to" data-target="#revoke-group-permission">Revoke a permission from a group</a>
                         </li>
                         <li>
-                            <a href="#" class="js-scroll-to" data-target="#adding-user-group">Adding a user to a group</a>
+                            <a href="#" class="js-scroll-to" data-target="#adding-player-group">Adding a player to a group</a>
                         </li>
                         <li>
-                            <a href="#" class="js-scroll-to" data-target="#removing-user-group">Removing a user from a group</a>
+                            <a href="#" class="js-scroll-to" data-target="#removing-player-group">Removing a player from a group</a>
                         </li>
                         <li>
                             <a href="#" class="js-scroll-to" data-target="#add-group">Adding an entirely new group</a>
@@ -82,51 +82,51 @@ permalink: /tutorials/using-permissions
             </h3>
         </div>
         <p class="helper">
-            Permissions allows server owners to give users unique abilities and benefits on their servers. Administering permissions is easy; simply enter the desired command and you're done! If your server does not have a console, you can use any compatible RCON tool or remote console to send the commands to the server. Most uMod-supported games also support the permission commands in the chat, or will soon.
+            Permissions allows server owners to give players unique abilities and benefits on their servers. Administering permissions is easy; simply enter the desired command and you're done! If your server does not have a console, you can use any compatible RCON tool or remote console to send the commands to the server. Most uMod-supported games also support the permission commands in the chat, or will soon.
             <br /><br />
             For this guide, the permission umod.reload will be used, which is used for the umod.reload / reload command that uMod itself provides. Keep in mind that permissions only exist if provided by a plugin or uMod itself.
             <br /><br />
             By default, the groups that are created by uMod are: admin and default. These can be changed by editing those under the umod.config.json file. The admin group will automatically be assigned to players that are recognized as admin by the server. The "default" group will automatically be assigned to ALL players that connect to the server.
         </p>
-        <div class="category-info" id="grant-user-permission">
+        <div class="category-info" id="grant-player-permission">
             <h3 class="category-title">
-                Grant a permission to an individual user
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#grant-user-permission">
+                Grant a permission to an individual player
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#grant-player-permission">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-batch">umod.grant user Wulf umod.reload</code></pre>
+            <pre><code class="language-batch">umod.grant player Wulf umod.reload</code></pre>
         </div>
-        <div class="category-info" id="revoke-user-permission">
+        <div class="category-info" id="revoke-player-permission">
             <h3 class="category-title">
-                Revoke a permission from an individual user
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#revoke-user-permission">
+                Revoke a permission from an individual player
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#revoke-player-permission">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-batch">umod.revoke user Wulf umod.reload</code></pre>
+            <pre><code class="language-batch">umod.revoke player Wulf umod.reload</code></pre>
         </div>
-        <div class="category-info" id="show-user-permissions">
+        <div class="category-info" id="show-player-permissions">
             <h3 class="category-title">
-                Show a user's permissions
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#show-user-permissions">
+                Show a player's permissions
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#show-player-permissions">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-batch">umod.show user Wulf</code></pre>
+            <pre><code class="language-batch">umod.show player Wulf</code></pre>
         </div>
         <div class="category-info" id="show-permission-owners">
             <h3 class="category-title">
-                Showing which user or group has a permission
+                Showing which player or group has a permission
                 <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#show-permission-owners">
                 <i class="fa fa-link"></i>
                 </a>
@@ -163,35 +163,35 @@ permalink: /tutorials/using-permissions
             <span class="js-copy-to-clipboard copy-code">copy</span>
             <pre><code class="language-batch">umod.revoke group admin umod.reload</code></pre>
         </div>
-        <div class="category-info" id="adding-user-group">
+        <div class="category-info" id="adding-player-group">
             <h3 class="category-title">
-                Adding a user to an existing group
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#adding-user-group">
+                Adding a player to an existing group
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#adding-player-group">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
         <p class="helper">
-            Adding a user to a group will give them all of the permissions assigned to that group
+            Adding a player to a group will give them all of the permissions assigned to that group
         </p>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-batch">umod.usergroup add Wulf admin</code></pre>
+            <pre><code class="language-batch">umod.playergroup add Wulf admin</code></pre>
         </div>
-        <div class="category-info" id="removing-user-group">
+        <div class="category-info" id="removing-player-group">
             <h3 class="category-title">
-                Removing a user from an existing group
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#removing-user-group">
+                Removing a player from an existing group
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#removing-player-group">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
         <p class="helper">
-            Removing a user from a group will remove from them all of the permissions assigned to that group
+            Removing a player from a group will remove from them all of the permissions assigned to that group
         </p>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-batch">umod.usergroup remove Wulf admin</code></pre>
+            <pre><code class="language-batch">umod.playergroup remove Wulf admin</code></pre>
         </div>
         <div class="category-info" id="add-group">
             <h3 class="category-title">
@@ -306,7 +306,7 @@ permalink: /tutorials/using-permissions
         </div>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-batch">umod.grant user Wulf umod.*</code></pre>
+            <pre><code class="language-batch">umod.grant player Wulf umod.*</code></pre>
         </div>
         <div class="category-info" id="conclusion">
             <h3 class="category-title">
