@@ -1,7 +1,7 @@
 ---
 category:
-title: Installing and configuring plugins for uMod
-description: ""
+title: Installing and configuring plugins
+description: "Learn how to install and configure plugins for uMod"
 layout: docs
 permalink: /tutorials/installing-configuring-plugins
 ---
@@ -21,36 +21,34 @@ permalink: /tutorials/installing-configuring-plugins
                 </li>
             </ol>
         </div>
-        
-        <div class="category-info " id="introduction">
-          <h3 class="category-title">
-            Introduction
-            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#introduction">
-              <i class="fa fa-link"></i>
-            </a>
-          </h3>
+        <div class="category-info" id="introduction">
+            <h3 class="category-title">
+                Introduction
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#introduction">
+                <i class="fa fa-link"></i>
+                </a>
+            </h3>
         </div>
         <p class="helper">
             The majority of plugins released on umod.org are written in C# (CSharp) which will have filenames ending in .cs. To install the plugin on a server, the server provider must support uMod, else the plugins will not load or do anything.
         </p>
-        
-        <div class="category-info " id="getting-started">
-          <h3 class="category-title">
-            Getting started
-            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#getting-started">
-              <i class="fa fa-link"></i>
-            </a>
-          </h3>
-        </div>        
+        <div class="category-info" id="getting-started">
+            <h3 class="category-title">
+                Getting started
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#getting-started">
+                <i class="fa fa-link"></i>
+                </a>
+            </h3>
+        </div>
         <ul class="steps">
             <li class="step">
                 <span class="step-number">1</span>
                 <h4 class="step-title">Ensure uMod is installed</h4>
                 <div class="step-content">
                     Check that uMod is installed by running the following command in chat or in the server console.
-                    <div class="code-highlight " data-label="">
+                    <div class="code-highlight" data-label="">
                         <span class="js-copy-to-clipboard copy-code">copy</span>
-                        <pre><code class="language-markup">umod.version</code></pre>
+                        <pre><code class="language-batch">umod.version</code></pre>
                     </div>
                 </div>
             </li>
@@ -58,7 +56,7 @@ permalink: /tutorials/installing-configuring-plugins
                 <span class="step-number">2</span>
                 <h4 class="step-title">Download plugins</h4>
                 <p class="step-content">
-                    Download freely available plugins from the <a href="https://umod.org/plugins" target="_blank">Plugins</a> page.  
+                    Download freely available plugins from the <a href="https://umod.org/plugins" target="_blank">Plugins</a> page.
                     Do <em>not</em> rename the plugin file or change the file extension when installing a plugin as doing so will make the plugin unusable.
                 </p>
             </li>
@@ -73,22 +71,21 @@ permalink: /tutorials/installing-configuring-plugins
                 <span class="step-number">4</span>
                 <h4 class="step-title">Ensure the server is started</h4>
                 <div class="step-content">
-                    Start the server if it is not already running and wait for it to initialize fully. 
+                    Start the server if it is not already running and wait for it to initialize fully.
                     Once started, check that uMod is installed by executing the following chat or console command.
-                    <div class="code-highlight " data-label="">
+                    <div class="code-highlight" data-label="">
                         <span class="js-copy-to-clipboard copy-code">copy</span>
-                        <pre><code class="language-markup">umod.version</code></pre>
+                        <pre><code class="language-batch">umod.version</code></pre>
                     </div>
-                    If that command does not work, uMod is not installed.  Please return to Step 1.
+                    If that command does not work, uMod is not installed. Please return to Step 1.
                 </div>
             </li>
             <li class="step">
                 <span class="step-number">5</span>
                 <h4 class="step-title">Navigate to the uMod plugins directory</h4>
                 <p class="step-content">
-                    After uMod is installed, the default uMod folders (config, data, lang, logs, plugins) are generated. 
-                    
-                    Find the "plugins" folder which is located at umod/plugins by default.  Some shared hosting environments may move the plugins folder to a different location.
+                    After uMod is installed, the default uMod folders (config, data, lang, logs, plugins) are generated.
+                    Find the "plugins" folder which is located at umod/plugins by default. Some shared hosting environments may move the plugins folder to a different location.
                 </p>
             </li>
             <li class="step">
@@ -102,44 +99,36 @@ permalink: /tutorials/installing-configuring-plugins
                 <span class="step-number">7</span>
                 <h4 class="step-title">Configure a plugin</h4>
                 <p class="step-content">
-                    If a plugin is configurable, locate the configuration file by navigating to the "config" directory and edit the JSON file with a name that matches the name of the plugin.
-                    If no configuration file is present, then the plugin is either not configurable or it was not successfully loaded and may be broken.
-                    In this case, check the latest log files under umod/logs for errors.
+                    If a plugin is configurable, locate the configuration file by navigating to the "config" directory and edit the JSON file with a name that matches the name of the plugin. If no configuration file is present, then the plugin is either not configurable or it was not successfully loaded and may be broken. In this case, check the latest log files under umod/logs for errors.
                 </p>
             </li>
             <li class="step">
                 <span class="step-number">7</span>
                 <h4 class="step-title">Configuration changes</h4>
                 <div class="step-content">
-                    For the configuration file changes to take effect, simply reload the plugin using the following console command. 
-                    
-                    <div class="code-highlight " data-label="">
+                    For the configuration file changes to take effect, simply reload the plugin using the following console command.
+                    <div class="code-highlight" data-label="">
                         <span class="js-copy-to-clipboard copy-code">copy</span>
-                        <pre><code class="language-markup">umod.reload PluginName</code></pre>
+                        <pre><code class="language-batch">umod.reload PluginName</code></pre>
                     </div>
-                
-                    If the changes are valid and the file was edited correctly, the plugin will now be using the updated configuration. 
-                    <br/>
-                    If there were errors while reloading the plugin that mention anything related to JSON, then the file was most likely not edited correctly and has invalid JSON. 
-                    <br/>
+                    If the changes are valid and the file was edited correctly, the plugin will now be using the updated configuration.
+                    <br />
+                    If there were errors while reloading the plugin that mention anything related to JSON, then the file was most likely not edited correctly and has invalid JSON.
+                    <br />
                     When editing configuration files, it's always recommended to validate it using a validator such as <a href="https://www.jsonlint.com" target="_blank">www.jsonlint.com</a>.
                 </div>
             </li>
         </ul>
-        
-        <div class="category-info " id="data-files">
-          <h3 class="category-title">
-            Data files
-            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#data-files">
-              <i class="fa fa-link"></i>
-            </a>
-          </h3>
+        <div class="category-info" id="data-files">
+            <h3 class="category-title">
+                Data files
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#data-files">
+                <i class="fa fa-link"></i>
+                </a>
+            </h3>
         </div>
         <p class="helper">
-          Some plugins store persistent data. This data can be found and reset in the umod/data directory
-          The data files are generally sensibly named with the plugin's name in the filename. 
-          Deleting a data file will reset it, but will generally only take effect if the plugin is unloaded or the server is offline. 
-          This can be useful when performing a server wipe. 
+            Some plugins store persistent data. This data can be found and reset in the umod/data directory. The data files are generally sensibly named with the plugin's name in the filename. Deleting a data file will reset it, but will generally only take effect if the plugin is unloaded or the server is offline. This can be useful when performing a server wipe.
         </p>
     </div>
 </div>
