@@ -14,43 +14,53 @@ permalink: /tutorials/using-permissions
                     <a href="#" class="js-scroll-to" data-target="#introduction">Introduction</a>
                 </li>
                 <li>
-                    <a href="#" class="js-scroll-to" data-target="#giving-player-permission">Giving an individual player a permission</a>
+                    <a href="#" class="js-scroll-to" data-target="#permissions">Permissions</a>
+                    <ol>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#grant-user-permission">Grant a permission to an individual user</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#revoke-user-permission">Revoke a permission from an individual user</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#show-user-permissions">Showing a user's permissions</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#show-permission-owners">Showing which user or group has a permission</a>
+                        </li>
+                    </ol>
                 </li>
                 <li>
-                    <a href="#" class="js-scroll-to" data-target="#removing-player-permission">Removing a permission from an individual player</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#giving-group-permission">Giving an entire uMod group a permission</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#removing-group-permission">Removing a permission from a group</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#adding-user-group">Adding a user to an existing group</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#removing-user-group">Removing a user from an existing group</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#add-group">Adding a entirely new group</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#remove-group">Removing an existing group</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#group-title">Setting the title or rank of a group</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#group-parent">Setting the parent group of another group</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#show-player-permissions">Showing a user's permissions</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#show-group">Showing a group's members and permissions</a>
-                </li>
-                <li>
-                    <a href="#" class="js-scroll-to" data-target="#show-permission-owners">Showing which user or group has a permission</a>
+                    <a href="#" class="js-scroll-to" data-target="#groups">Groups</a>
+                    <ol>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#grant-group-permission">Grant a permission to an entire group</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#revoke-group-permission">Revoke a permission from a group</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#adding-user-group">Adding a user to a group</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#removing-user-group">Removing a user from a group</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#add-group">Adding an entirely new group</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#remove-group">Removing an existing group</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#group-title">Setting the title or rank of a group</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#group-parent">Setting the parent group of another group</a>
+                        </li>
+                        <li>
+                            <a href="#" class="js-scroll-to" data-target="#show-group">Showing a group's members and permissions</a>
+                        </li>
+                    </ol>
                 </li>
                 <li>
                     <a href="#" class="js-scroll-to" data-target="#show-all-groups-perms">Showing all groups or permissions</a>
@@ -78,62 +88,77 @@ permalink: /tutorials/using-permissions
             <br /><br />
             By default, the groups that are created by uMod are: admin and default. These can be changed by editing those under the umod.config.json file. The admin group will automatically be assigned to players that are recognized as admin by the server. The "default" group will automatically be assigned to ALL players that connect to the server.
         </p>
-        <div class="category-info" id="giving-player-permission">
+        <div class="category-info" id="grant-user-permission">
             <h3 class="category-title">
-                Giving an individual player a permissions
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#giving-player-permission">
+                Grant a permission to an individual user
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#grant-user-permission">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
-        <p class="helper">
-            Sometimes you just want a single player to have permission to a command or feature.
-        </p>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
             <pre><code class="language-batch">umod.grant user Wulf umod.reload</code></pre>
         </div>
-        <div class="category-info" id="removing-player-permission">
+        <div class="category-info" id="revoke-user-permission">
             <h3 class="category-title">
-                Removing a permission from an individual player
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#removing-player-permission">
+                Revoke a permission from an individual user
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#revoke-user-permission">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
-        <p class="helper">
-            Don't want that user to have the permission you granted anymore? Just revoke it!
-        </p>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
             <pre><code class="language-batch">umod.revoke user Wulf umod.reload</code></pre>
         </div>
-        <div class="category-info" id="giving-group-permission">
+        <div class="category-info" id="show-user-permissions">
             <h3 class="category-title">
-                Giving an entire uMod group a permission
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#giving-group-permission">
+                Show a user's permissions
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#show-user-permissions">
+                <i class="fa fa-link"></i>
+                </a>
+            </h3>
+        </div>
+        <div class="code-highlight" data-label="">
+            <span class="js-copy-to-clipboard copy-code">copy</span>
+            <pre><code class="language-batch">umod.show user Wulf</code></pre>
+        </div>
+        <div class="category-info" id="show-permission-owners">
+            <h3 class="category-title">
+                Showing which user or group has a permission
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#show-permission-owners">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
         <p class="helper">
-            This is basically the same process only instead of granting a permission to a single user, you grant it to an entire group.
+            Sometimes this command is helpful when tracking down who has a permission.
         </p>
+        <div class="code-highlight" data-label="">
+            <span class="js-copy-to-clipboard copy-code">copy</span>
+            <pre><code class="language-batch">umod.show perm umod.reload</code></pre>
+        </div>
+        <div class="category-info" id="grant-group-permission">
+            <h3 class="category-title">
+                Grant a permission to an entire group
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#grant-group-permission">
+                <i class="fa fa-link"></i>
+                </a>
+            </h3>
+        </div>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
             <pre><code class="language-batch">umod.grant group admin umod.reload</code></pre>
         </div>
-        <div class="category-info" id="removing-group-permission">
+        <div class="category-info" id="revoke-group-permission">
             <h3 class="category-title">
-                Removing a permission from a group
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#removing-group-permission">
+                Revoke a permission from a group
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#revoke-group-permission">
                 <i class="fa fa-link"></i>
                 </a>
             </h3>
         </div>
-        <p class="helper">
-            This is basically the same process only instead of granting a permission to a single user, you grant it to an entire group.
-        </p>
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
             <pre><code class="language-batch">umod.revoke group admin umod.reload</code></pre>
@@ -170,7 +195,7 @@ permalink: /tutorials/using-permissions
         </div>
         <div class="category-info" id="add-group">
             <h3 class="category-title">
-                Adding a entirely new group
+                Adding an entirely new group
                 <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#add-group">
                 <i class="fa fa-link"></i>
                 </a>
@@ -230,18 +255,6 @@ permalink: /tutorials/using-permissions
             <span class="js-copy-to-clipboard copy-code">copy</span>
             <pre><code class="language-batch">umod.group parent admin default</code></pre>
         </div>
-        <div class="category-info" id="show-player-permissions">
-            <h3 class="category-title">
-                Showing a user's permissions
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#show-player-permissions">
-                <i class="fa fa-link"></i>
-                </a>
-            </h3>
-        </div>
-        <div class="code-highlight" data-label="">
-            <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-batch">umod.show user Wulf</code></pre>
-        </div>
         <div class="category-info" id="show-group">
             <h3 class="category-title">
                 Showing a group's members and permissions
@@ -253,21 +266,6 @@ permalink: /tutorials/using-permissions
         <div class="code-highlight" data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
             <pre><code class="language-batch">umod.show group admin</code></pre>
-        </div>
-        <div class="category-info" id="show-permission-owners">
-            <h3 class="category-title">
-                Showing which user or group has a permission
-                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#show-permission-owners">
-                <i class="fa fa-link"></i>
-                </a>
-            </h3>
-        </div>
-        <p class="helper">
-            Sometimes you need a little help tracking down who has a permission, this command should help with that!
-        </p>
-        <div class="code-highlight" data-label="">
-            <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-batch">umod.show perm umod.reload</code></pre>
         </div>
         <div class="category-info" id="show-all-groups-perms">
             <h3 class="category-title">
