@@ -139,7 +139,7 @@ arg[1] = ""</code></pre>
                 <br/>
                 Parameterized queries are queries where user input is replaced with a placeholder. The SQL driver then parses the parameterized query, removes malicious code from user input and inserts the clean user input into the placeholders.
                 <br/>
-                In Oxide, our query from above can be written as a parameterized query as follows:
+                In uMod, our query from above can be written as a parameterized query as follows:
                 <div class="code-highlight " data-label="">
                     <span class="js-copy-to-clipboard copy-code">copy</span>
                     <pre><code class="language-markup">mysql.NewSql().Append("SELECT * FROM table WHERE name = @0 AND name2 = @1;", arg[0], arg[1])</code></pre>

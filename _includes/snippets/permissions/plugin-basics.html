@@ -1,0 +1,15 @@
+{% include snippets/plugin-header.html %}
+        private void Init()
+        {
+            permission.RegisterPermission("epicstuff.mypermission", this);
+        }
+        
+        private void OnUserConnected(IPlayer player)
+        {
+            if (player.HasPermission("epicstuff.mypermission")) 
+            {
+                // player has permission, do special stuff for them
+            }
+        }
+
+{% include snippets/plugin-footer.html %}
