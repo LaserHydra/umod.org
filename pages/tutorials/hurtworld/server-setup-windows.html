@@ -1,9 +1,9 @@
 ---
 category:
-title: Setting up a Rust server on Windows
-description: "Get your Rust server online and modded with uMod in under 5 minutes."
+title: Setting up a Hurtworld server on Windows
+description: "Get your Hurtworld server online and modded with uMod in under 5 minutes."
 layout: docs
-permalink: /tutorials/rust/server-setup-windows
+permalink: /tutorials/hurtworld/server-setup-windows
 ---
 
 <div class="row">
@@ -39,14 +39,14 @@ permalink: /tutorials/rust/server-setup-windows
           </h3>
         </div>
         <p class="helper">
-            SteamCMD is a command-line client for Steam that can install and update the Rust dedicated server files.
+            SteamCMD is a command-line client for Steam that can install and update the Hurtworld dedicated server files.
             <br/>
             <a href="http://media.steampowered.com/installer/steamcmd.zip" class="btn btn-primary"><i class="fa fa-download"></i> Download SteamCMD</a>
             <br/>
             Extract and run SteamCMD.  The first time SteamCMD runs, it will update itself to the latest version.  Allow SteamCMD to update and then proceed to the next step.
         </p>
         
-        <img src="{{ "/assets/images/tutorials/rust/steamcmd.png" | prepend: site.baseurl }}"/>
+        <img src="{{ "/assets/images/tutorials/hurtworld/steamcmd.png" | prepend: site.baseurl }}"/>
         
         <div class="category-info " id="download-dedicated">
           <h3 class="category-title">
@@ -64,24 +64,24 @@ permalink: /tutorials/rust/server-setup-windows
                 <pre><code class="language-markup">login anonymous</code></pre>
             </div>
         
-            Next, choose the directory where your Rust dedicated server installation will be located by entering the following
+            Next, choose the directory where your Hurtworld dedicated server installation will be located by entering the following
             
             <div class="code-highlight " data-label="">
                 <span class="js-copy-to-clipboard copy-code">copy</span>
                 <pre><code class="language-markup">force_install_dir &lt;path&gt;</code></pre>
             </div>
             
-            Finally, begin the Rust dedicated server installation by entering the following
+            Finally, begin the Hurtworld dedicated server installation by entering the following
             
             <div class="code-highlight " data-label="">
                 <span class="js-copy-to-clipboard copy-code">copy</span>
-                <pre><code class="language-markup">app_update 258550</code></pre>
+                <pre><code class="language-markup">app_update 405100</code></pre>
             </div>
             
-            Please be patient as the Rust dedicated server installation may take a few minutes to download depending on your internet connection speed.
+            Please be patient as the Hurtworld dedicated server installation may take a few minutes to download depending on your internet connection speed.
         </div>
         <br/>
-        <img src="{{ "/assets/images/tutorials/rust/app_update.png" | prepend: site.baseurl }}"/>
+        <img src="{{ "/assets/images/tutorials/hurtworld/app_update.png" | prepend: site.baseurl }}"/>
         
         <div class="category-info " id="basic-install-update-script">
           <h3 class="category-title">
@@ -110,8 +110,8 @@ pause</code></pre>
         </div>
         <p class="helper">
             Download the latest uMod build that is compatible with your server version first. 
-            Extract uMod to the folder where RustDedicated.exe is located and overwrite when prompted. 
-            This will add the required uMod files and the modified Rust files which will load uMod.
+            Extract uMod to the folder where Hurtworld.exe is located and overwrite when prompted. 
+            This will add the required uMod files and the modified Hurtworld files which will load uMod.
         </p>
         
         <div class="category-info " id="server-start">
@@ -123,18 +123,17 @@ pause</code></pre>
           </h3>
         </div>
         <p class="helper">
-            Create a batch (.bat) file in your Rust dedicated server folder and enter the following script
+            Create a batch (.bat) file in your Hurtworld dedicated server folder and enter the following script
         </p>
         <div class="code-highlight " data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-markup">@echo off
-RustDedicated.exe -batchmode +server.port 28015 +rcon.port 28016 +rcon.ip 0.0.0.0 +rcon.password "changeme"</code></pre>
+            <pre><code class="language-markup">Hurtworld.exe -batchmode -nographics -exec "host 12871;servername My uMod Server;addadmin 7656XXXXXXXXXXXXX;maxplayers 50" </code></pre>
         </div>
         <p class="helper">
             Launch the batch file
         </p>
         
-        <img src="{{ "/assets/images/tutorials/rust/umod-server.png" | prepend: site.baseurl }}"/>
+        <img src="{{ "/assets/images/tutorials/hurtworld/umod-server.png" | prepend: site.baseurl }}"/>
         
         <div class="category-info " id="server-join">
           <h3 class="category-title">
@@ -145,11 +144,11 @@ RustDedicated.exe -batchmode +server.port 28015 +rcon.port 28016 +rcon.ip 0.0.0.
           </h3>
         </div>
         <p class="helper">
-            Launch the Rust game client and open the in-game console by pressing the F1 key.  Then enter the following and press the Enter key
+            Launch the Hurtworld game client and open the in-game console by pressing the F1 key.  Then enter the following and press the Enter key
         </p>
         <div class="code-highlight " data-label="">
             <span class="js-copy-to-clipboard copy-code">copy</span>
-            <pre><code class="language-markup">connect 127.0.0.1:28015</code></pre>
+            <pre><code class="language-markup">connect 127.0.0.1:12871</code></pre>
         </div>
         <p class="helper">
             To make the server accessible to other players, the external IP address must be obtained and all necessary port forwarding rules must be configured on the firewall(s).

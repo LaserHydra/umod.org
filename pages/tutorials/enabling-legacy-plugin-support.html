@@ -1,0 +1,95 @@
+---
+category:
+title: Enabling legacy plugin support
+description: "Easily enable legacy CoffeeScript, Javascript, Lua, and Python plugins"
+layout: docs
+permalink: /tutorials/enabling-legacy-plugin-support
+---
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-of-contents">
+            <ol>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#introduction">Introduction</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#getting-started">Getting started</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#notes">Notes</a>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="category-info " id="introduction">
+          <h3 class="category-title">
+            Introduction
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#introduction">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>
+        <p class="helper">
+            While legacy plugins are no longer supported by uMod for public plugin submissions, it is still possible to install the legacy plugins if your host allows it.
+        </p>
+        
+        <div class="category-info " id="getting-started">
+          <h3 class="category-title">
+            Getting started
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#getting-started">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>        
+        <ul class="steps">
+            <li class="step">
+                <span class="step-number">1</span>
+                <h4 class="step-title">Download the extension and dependencies</h4>
+                <div class="step-content">
+                    <b>JavaScript & CoffeeScript</b> <a href="https://ci.appveyor.com/api/projects/umod/umod-javascript/artifacts/net35/uMod.JavaScript.zip?branch=master"><i class="fa fa-download"></i> Download</a>
+                    <br/>
+                    <b>LUA</b> <a href="https://ci.appveyor.com/api/projects/umod/umod-lua/artifacts/net35/uMod.Lua.zip?branch=master"><i class="fa fa-download"></i> Download</a>
+                    <br/>
+                    <b>Python</b> <a href="https://ci.appveyor.com/api/projects/umod/umod-python/artifacts/net35/uMod.Python.zip?branch=master"><i class="fa fa-download"></i> Download</a>
+                </div>
+            </li>
+            <li class="step">
+                <span class="step-number">2</span>
+                <h4 class="step-title">Completely shutdown the server</h4>
+                <p class="step-content">
+                    Ensure the server is offline in order to replace any existing files
+                </p>
+            </li>
+            <li class="step">
+                <span class="step-number">3</span>
+                <h4 class="step-title">Move or upload the above files to the location where uMod is currently installed</h4>
+                <p class="step-content">
+                    The location of a uMod installation will depend on which game server it is installed on.  Search for "uMod.Core.dll" and that is likely the correct location.
+                    <br/>
+                    <b>Examples</b>: RustDedicated_Data/Managed for Rust, Hurtworld_Data/Managed for Hurtworld, etc.
+                </p>
+            </li>
+            <li class="step">
+                <span class="step-number">4</span>
+                <h4 class="step-title">Start the server</h4>
+                <div class="step-content">
+                    Now the server will be able to load JavaScript (.js), CoffeeScript (.coffee), LUA (.lua), and/or Python (.py) plugins depending on which of the above extensions are installed
+                </div>
+            </li>
+        </ul>
+        
+        <div class="category-info " id="notes">
+          <h3 class="category-title">
+            Notes
+            <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#notes">
+              <i class="fa fa-link"></i>
+            </a>
+          </h3>
+        </div>
+        <p class="helper">
+          The above languages are no longer bundled with uMod due to lacking interest and dedicated support for the language. 
+          There are very few public plugins written in these language, but the extensions will be maintained as necessary for basic plugin functionality. 
+        </p>
+    </div>
+</div>
