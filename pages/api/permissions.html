@@ -2,7 +2,7 @@
 title: Permissions
 description:
 layout: api
-icon: user-secret
+icon: sitemap
 permalink: /api/permissions
 menu-weight: 30
 ---
@@ -21,11 +21,12 @@ menu-weight: 30
         <p class="category-content">{{ site.data.api.permissions.intro }}</p>
     </div>
     <div class="col-md-12">
-        <h4>
+        <h4 class="category-content">
             <i class="fa fa-info-circle"></i> For a primer on how to use permissions as a server owner, please consult the <a href="https://umod.org/tutorials/using-permissions.html">Using the uMod permissions system</a> tutorial
         </h4>
+        <hr/>
     </div>
-    <div class="category-info " id="basic-usage">
+    <div class="category-info" id="basic-usage">
         <h3 class="category-title">
             Basic Usage
             <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#basic-usage">
@@ -36,13 +37,13 @@ menu-weight: 30
     <p class="helper">
         Most plugins can benefit from some permissions.  Below is a basic example of how to register a permission and check if a player has that permission assigned to them
     </p>
-    <div class="code-highlight " data-label="">
+    <div class="code-highlight" data-label="">
         <span class="js-copy-to-clipboard copy-code">copy</span>
-        <pre><code class="language-markup">
+        <pre><code class="language-csharp js-code ghostIn">
 {% include snippets/permissions/plugin-basics.html %}    
         </code></pre>
     </div>
-    <div class="category-info " id="api">
+    <div class="category-info" id="api">
         <h3 class="category-title">
             API
             <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#api">
