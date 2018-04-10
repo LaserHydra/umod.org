@@ -321,17 +321,18 @@ module Jekyll
       puts "## Getting information for #{repo['name']}"
       contents = get_repo_contents(repo)
       {
+        'id' => repo['id'],
         'name' => repo['name'],
         'title' => repo['name'].humanize,
         'description' => Sanitize.clean(repo['description']).chomp('.'),
         'homepage' => repo['homepage'],
         'language' => repo['language'],
         'topics' => get_repo_topics(repo),
-        'created_at' => repo['created_at'],
-        'updated_at' => repo['pushed_at'],
+        'created_at' => repo['created_at'], # TODO: Only grab from the relevant release
+        'updated_at' => repo['pushed_at'], # TODO: Only grab from the relevant release
         'github_url' => repo['html_url'],
         'icon_url' => get_contents_url(contents, 'icon.png'),
-        'download_url' => get_contents_url(contents, repo['name'] + $file_exts[repo['language']]),
+        'download_url' => get_contents_url(contents, repo['name'] + $file_exts[repo['language']]), # TODO: Only grab from the relevant release
         'private' => repo['private'],
         'stargazers' => repo['stargazers_count'],
         'watchers' => repo['watchers_count'],
