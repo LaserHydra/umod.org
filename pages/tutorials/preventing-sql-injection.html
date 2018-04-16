@@ -1,0 +1,154 @@
+---
+category:
+title: Preventing SQL injections
+description: "Learn how to keep your plugins secure from SQL injection attacks"
+layout: docs
+permalink: /tutorials/preventing-sql-injection
+---
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-of-contents">
+            <ol>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#introduction">Introduction</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#solution">Solution</a>
+                </li>
+                <li>
+                    <a href="#" class="js-scroll-to" data-target="#conclusion">Conclusion</a>
+                </li>
+            </ol>
+        </div>
+        <div class="category-info" id="introduction">
+            <h3 class="category-title">
+                Introduction
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#introduction">
+                <i class="fa fa-link"></i>
+                </a>
+            </h3>
+        </div>
+        <div class="helper">
+            An SQL injection is a type of attack used to attack databases. <br/>
+            This attack is executed by making use of malicious user input and often allows clients to manipulate a database at will.
+            <br/><br/>
+            Let's assume our table looks like this:
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">+---+------+--------+
+|id | name | name2  |
++---+------+--------+</code></pre>
+            </div>
+
+            id is some sort of integer, name and name2 are strings.<br/>
+            A possible query for this table might look like this:<br/>
+
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">mysql.NewSql().Append("SELECT * FROM table WHERE name = \"" + arg[0] + "\" AND name2 = \"" + arg[1] + "\";")</code></pre>
+            </div>
+
+            Assuming arg[0] and arg[1] are input strings provided by the user, this query is vulnerable to SQL injections.
+            <br/><br/>
+            The first possible attack ends the query via a quote to inject custom SQL code after the input:
+
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">arg[0] = "\"; DROP TABLE table;--"
+arg[1] = ""</code></pre>
+            </div>
+
+            When combined with the SQL query, this results in the following query:
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">SELECT * FROM table WHERE name = ""; DROP TABLE table;-- AND name2 = "";</code></pre>
+            </div>
+
+            First a select is executed, then the table is dropped and the rest is commented out.
+            <br/><br/>
+            The second possible attack ends the query via a quote to ignore the second condition name2 = "":
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">arg[0] = "foo\";--"
+arg[1] = ""</code></pre>
+            </div>
+
+            This results in the following query when combined:
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">SELECT * FROM table WHERE name = "foo";-- AND name2 = "";</code></pre>
+            </div>
+
+            The select is executed without considering the second condition because the second condition is commented out.
+            <br/>
+            The first attack is generally dangerous because you don't want your users to be able to delete your data, the second attack is dangerous in regards to bypassing authentication and leaking data.
+            <br/>
+            Let's assume name and name2 are username and password, then the attacker would be able to authenticate as any user without the password being considered.
+            <br/>
+            This might also result in the database leaking data when the result of the select can be accessed by the attacker, giving him access to data he shouldn't have access to.
+            <br/>
+            There are more possible attack vectors than this. You should always protect yourself against SQL injections when user input is involved.
+        </div>
+        <div class="category-info" id="solution">
+            <h3 class="category-title">
+                Solution
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#solution">
+                <i class="fa fa-link"></i>
+                </a>
+            </h3>
+        </div>
+        <div class="helper">
+            There are effectively two different types of mechanisms in uMod that help with preventing SQL injections. 
+            <br/>
+            The following applies to both the SQLite and the MySQL extension, the only difference being that MySQL is replaced with SQLite.
+            <br/>
+            <br/>
+            The first one prevents multiple queries being executed in a single .Append() call, meaning the following code is invalid when added to the SQL query in a single call:
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">SELECT * FROM table; DROP TABLE table;</code></pre>
+            </div>
+            This automatically prevents the first kind of attack I mentioned, as the attacker cannot drop the table after ending the query with a quote.
+            <br/><br/>
+            The second one prevents all kinds of attacks using parameterized queries.
+            <br/>
+            Parameterized queries are queries where user input is replaced with a placeholder. The SQL driver then parses the parameterized query, removes malicious code from user input and inserts the clean user input into the placeholders.
+            <br/>
+            In uMod, our query from above can be written as a parameterized query as follows:
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">mysql.NewSql().Append("SELECT * FROM table WHERE name = @0 AND name2 = @1;", arg[0], arg[1])</code></pre>
+            </div>
+            @0 and @1 are the placeholders for the arguments provided in the varargs list after the query in our .Append() call.
+            <br/>
+            @0 refers to the first argument supplied, in this case arg[0], while @1 refers to the second argument supplied, in this case arg[1].
+            <br/>
+            Placeholders may not be enclosed by quotation marks.
+            <br/>
+            This parameterized query protects the database from the full spectrum of SQL injections.
+            <br/>
+            The actual C# syntax is very similar, just that you may use 
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">new Sql(query, args)</code></pre> 
+            </div>
+            instead of 
+            <div class="code-highlight " data-label="">
+                <span class="js-copy-to-clipboard copy-code">copy</span>
+                <pre><code class="language-markup">mysql.NewSql().Append(query, args)</code></pre>
+            </div>
+        </div>
+        <div class="category-info" id="conclusion">
+            <h3 class="category-title">
+                Conclusion
+                <a class="fragment-identifier js-fragment-identifier fragment-identifier-scroll" href="#conclusion">
+                <i class="fa fa-link"></i>
+                </a>
+            </h3>
+        </div>
+        <p class="helper">
+            To sum it up, use parameterized queries whenever possible, even when input isn't derived from user input, as you might change that in the future and then forget that this kind of input isn't protected against SQL injections.
+        </p>
+    </div>
+</div>
