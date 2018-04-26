@@ -464,37 +464,46 @@ module Jekyll
       puts "## #{gen_status}Generating page for #{plugin['name']}"
 
       # Attach plugin data to global site variable. This allows pages to see this plugin's data
-      page = PluginPage.new(self, self.source, dest_dir, "#{plugin['name']}.html", 'plugin')
+      page_file = "#{plugin['title'].downcase.gsub(' ', '-')}"
+      page = PluginPage.new(self, self.source, dest_dir, page_file + ".html", 'plugin')
       page.set_page_data(plugin, prev_plugin, next_plugin)
-      page.url = "/plugins/#{plugin['name'].downcase}" # Fixes layout name being appended to permalinks
+      page.url = "/plugins/#{page_file}"
       page.render(self.layouts, site_payload)
       page.write(self.dest)
       self.pages << page
 
+      # Create redirect from plugins/pluginname.html to plugins/plugin-name.html
+      redirect_file = plugin['name'].downcase;
+      redirect = PluginPage.new(self, self.source, dest_dir, redirect_file + ".html", 'redirect')
+      redirect.url = "/plugins/#{page_file}"
+      redirect.render(self.layouts, site_payload)
+      redirect.write(self.dest)
+      self.pages << redirect
+
       # Download the plugin file to serve directly
       if !plugin['download_url'].nil? && !plugin['private']
-        filename = plugin['name'] + $file_exts[plugin['language']]
+        download_file = plugin['name'] + $file_exts[plugin['language']]
         download = open(plugin['download_url']) {|f| f.read}
         unless download.nil?
-          write_static_file(download, filename, dest_dir)
-          puts " - Downloaded file #{filename}"
+          write_static_file(download, download_file, dest_dir)
+          puts " - Downloaded file #{download_file}"
         end
       end
 
-      update_repo_homepage(plugin)
       create_forums_category(plugin) unless ENV['DISCOURSE_API_KEY'].nil?
+      update_repo_homepage(plugin)
     end
 
     # Update homepage in plugin's repository
     def update_repo_homepage(plugin)
-      new_homepage = "#{self.config['home']}/plugins/#{plugin['name'].downcase}"
+      new_homepage = "#{self.config['home']}/plugins/#{plugin['title'].downcase.gsub(' ', '-')}"
 
       body = {
         'name' => plugin['name'],
         'homepage' => new_homepage,
         'private' => plugin['private'],
-        'has_issues' => true,
-        'has_projects' => true,
+        'has_issues' => false,
+        'has_projects' => false,
         'has_wiki' => false
       }
       repo_url = "https://api.github.com/repos/#{$github_org}/#{plugin['name']}"
