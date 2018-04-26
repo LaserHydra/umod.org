@@ -325,22 +325,23 @@ module Jekyll
         'name' => repo['name'],
         'title' => repo['name'].humanize,
         'description' => Sanitize.clean(repo['description']).chomp('.'),
-        'homepage' => repo['homepage'],
-        'language' => repo['language'],
-        'topics' => get_repo_topics(repo),
-        'created_at' => repo['created_at'], # TODO: Only grab from the relevant release
-        'updated_at' => repo['pushed_at'], # TODO: Only grab from the relevant release
+        'homepage_url' => repo['homepage'],
+        'support_url' => "#{self.config['forums']}/c/plugin-support/#{repo['name'].humanize.downcase.gsub(' ', '-')}",
         'github_url' => repo['html_url'],
         'icon_url' => get_contents_url(contents, 'icon.png'),
         'download_url' => get_contents_url(contents, repo['name'] + $file_exts[repo['language']]), # TODO: Only grab from the relevant release
+        'topics' => get_repo_topics(repo),
+        'language' => repo['language'],
         'private' => repo['private'],
         'stargazers' => repo['stargazers_count'],
         'watchers' => repo['watchers_count'],
+        'contributors' => get_repo_contributors(repo),
         'license_id' => !repo['license'].nil? ? repo['license']['spdx_id'] : nil,
         'license_name' => !repo['license'].nil? ? repo['license']['name'] : nil,
-        'contributors' => get_repo_contributors(repo),
         'latest_commit' => get_repo_commits(repo, 1).first,
         'latest_release' => get_repo_releases(repo, 1).first,
+        'created_at' => repo['created_at'], # TODO: Only grab from the relevant release
+        'updated_at' => repo['pushed_at'] # TODO: Only grab from the relevant release
       }
     end
 
