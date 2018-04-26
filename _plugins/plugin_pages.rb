@@ -478,11 +478,13 @@ module Jekyll
 
       # Create redirect from plugins/pluginname.html to plugins/plugin-name.html
       redirect_file = plugin['name'].downcase;
-      redirect = BasePage.new(self, self.source, dest_dir, redirect_file + ".html", 'redirect')
-      redirect.url = "/plugins/#{page_file}"
-      redirect.render(self.layouts, site_payload)
-      redirect.write(self.dest)
-      self.pages << redirect
+      if page_file != redirect_file
+        redirect = BasePage.new(self, self.source, dest_dir, redirect_file + ".html", 'redirect')
+        redirect.url = "/plugins/#{page_file}"
+        redirect.render(self.layouts, site_payload)
+        redirect.write(self.dest)
+        self.pages << redirect
+      end
 
       # Download the plugin file to serve directly
       if !plugin['download_url'].nil? && !plugin['private']
