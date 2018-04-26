@@ -74,8 +74,8 @@ module Jekyll
     end
   end
 
-  # The PluginPage class creates a single ingredients, plugin, or plugins page
-  class PluginPage < Page
+  # The BasePage class creates a single page
+  class BasePage < Page
     # The resultant relative URL of where the published file will end up
     # Added for use by a sitemap generator
     attr_accessor :dest_url
@@ -113,6 +113,15 @@ module Jekyll
       self.data[label] = data
     end
 
+    # Override so that we can control where the destination file goes
+    def destination(dest)
+      # The URL needs to be unescaped in order to preserve the correct filename
+      File.join(dest, @dest_dir, @dest_name)
+    end
+  end
+
+  # The PluginPage class creates a single plugin or plugins page
+  class PluginPage < BasePage
     # Attach our data to the global page variable. This allows pages to see this data
     # Use to set plugin. Also sets the page title
     def set_page_data(plugin, prev_plugin, next_plugin)
@@ -135,12 +144,6 @@ module Jekyll
         self.data['more_info'] = site.to_markdown(site.sanitize_readme(response.body, plugin))
         puts " - README.md found, set page.more_info"
       end
-    end
-
-    # Override so that we can control where the destination file goes
-    def destination(dest)
-      # The URL needs to be unescaped in order to preserve the correct filename
-      File.join(dest, @dest_dir, @dest_name)
     end
   end
 
@@ -475,7 +478,7 @@ module Jekyll
 
       # Create redirect from plugins/pluginname.html to plugins/plugin-name.html
       redirect_file = plugin['name'].downcase;
-      redirect = PluginPage.new(self, self.source, dest_dir, redirect_file + ".html", 'redirect')
+      redirect = BasePage.new(self, self.source, dest_dir, redirect_file + ".html", 'redirect')
       redirect.url = "/plugins/#{page_file}"
       redirect.render(self.layouts, site_payload)
       redirect.write(self.dest)
