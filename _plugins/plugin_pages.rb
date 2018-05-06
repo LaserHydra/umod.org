@@ -256,6 +256,7 @@ module Jekyll
           'author' => release['author']['login'],
           'prerelease' => release['prerelease'],
           'date' => release['published_at'],
+          'download_url' => "https://raw.githubusercontent.com/#{$github_org}/#{repo['name']}/#{release['tag_name']}/#{repo['name']}#{$file_exts[repo['language']]}",
           'changes' => release['body']
         }
         break if limit == 1
@@ -332,7 +333,7 @@ module Jekyll
         'support_url' => "#{self.config['forums']}/c/plugin-support/#{repo['name'].humanize.downcase.gsub(' ', '-')}",
         'github_url' => repo['html_url'],
         'icon_url' => get_contents_url(contents, 'icon.png'),
-        'download_url' => get_contents_url(contents, $repo['name'] + $file_exts[repo['language']]),
+        'download_url' => get_contents_url(contents, repo['name'] + $file_exts[repo['language']]),
         'topics' => get_repo_topics(repo),
         'language' => repo['language'],
         'private' => repo['private'],
@@ -490,7 +491,7 @@ module Jekyll
       if !plugin['download_url'].nil? && !plugin['private']
         download_file = plugin['name'] + $file_exts[plugin['language']]
         download_url = plugin['download_url']
-        if !plugin['latest_release'].nil? && !plugin['latest_release']['download_url'].nil?
+        if !plugin['latest_release'].nil?
           download_url = plugin['latest_release']['download_url']
         end
         download = open(download_url) {|f| f.read}
