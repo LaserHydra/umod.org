@@ -332,7 +332,7 @@ module Jekyll
         'support_url' => "#{self.config['forums']}/c/plugin-support/#{repo['name'].humanize.downcase.gsub(' ', '-')}",
         'github_url' => repo['html_url'],
         'icon_url' => get_contents_url(contents, 'icon.png'),
-        'download_url' => get_contents_url(contents, repo['name'] + $file_exts[repo['language']]), # TODO: Only grab from the relevant release
+        'download_url' => get_contents_url(contents, $repo['name'] + $file_exts[repo['language']]),
         'topics' => get_repo_topics(repo),
         'language' => repo['language'],
         'private' => repo['private'],
@@ -489,7 +489,11 @@ module Jekyll
       # Download the plugin file to serve directly
       if !plugin['download_url'].nil? && !plugin['private']
         download_file = plugin['name'] + $file_exts[plugin['language']]
-        download = open(plugin['download_url']) {|f| f.read}
+        download_url = plugin['download_url']
+        if !plugin['latest_release'].nil? && !plugin['latest_release']['download_url'].nil?
+          download_url = plugin['latest_release']['download_url']
+        end
+        download = open(download_url) {|f| f.read}
         unless download.nil?
           write_static_file(download, download_file, dest_dir)
           puts " - Downloaded file #{download_file}"
