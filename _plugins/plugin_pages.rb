@@ -466,7 +466,25 @@ module Jekyll
 
     # Write a plugins/plugin-name.html page
     def write_plugin_page(plugin, dest_dir, prev_plugin, next_plugin, gen_status = nil)
-      puts "## #{gen_status}Generating page for #{plugin['name']}"
+      puts "## #{gen_status}Generating files for #{plugin['name']}"
+
+      # Download the plugin file to serve directly
+      if !plugin['download_url'].nil? && !plugin['private']
+        download_file = plugin['name'] + $file_exts[plugin['language']]
+        download_url = plugin['download_url']
+        if !plugin['latest_release'].nil?
+          download_url = plugin['latest_release']['download_url']
+        end
+        request = Net::HTTP.get_response(URI(download_url))
+        unless request.nil? && request.code == 200
+          write_static_file(request.body, download_file, dest_dir)
+          puts " - Downloaded file #{download_file}"
+        else
+          puts " - Repo or plugin no longer exists, removing"
+          plugins.delete(plugin['id'])
+          return
+        end
+      end
 
       # Attach plugin data to global site variable. This allows pages to see this plugin's data
       page_file = "#{plugin['title'].downcase.gsub(' ', '-')}"
@@ -485,20 +503,6 @@ module Jekyll
         redirect.render(self.layouts, site_payload)
         redirect.write(self.dest)
         self.pages << redirect
-      end
-
-      # Download the plugin file to serve directly
-      if !plugin['download_url'].nil? && !plugin['private']
-        download_file = plugin['name'] + $file_exts[plugin['language']]
-        download_url = plugin['download_url']
-        if !plugin['latest_release'].nil?
-          download_url = plugin['latest_release']['download_url']
-        end
-        download = open(download_url) {|f| f.read}
-        unless download.nil?
-          write_static_file(download, download_file, dest_dir)
-          puts " - Downloaded file #{download_file}"
-        end
       end
 
       create_forums_category(plugin) unless ENV['DISCOURSE_API_KEY'].nil?
