@@ -338,7 +338,7 @@ module Jekyll
         'language' => repo['language'],
         'private' => repo['private'],
         'stargazers' => repo['stargazers_count'],
-        'watchers' => repo['watchers_count'],
+        'watchers' => repo['subscribers_count'],
         'contributors' => get_repo_contributors(repo),
         'license_id' => !repo['license'].nil? ? repo['license']['spdx_id'] : nil,
         'license_name' => !repo['license'].nil? ? repo['license']['name'] : nil,
